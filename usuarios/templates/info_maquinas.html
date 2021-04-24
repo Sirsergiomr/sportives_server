@@ -1,0 +1,47 @@
+{% extends 'admin/base.html' %}
+{% load staticfiles %}
+{% block extrahead %}
+    {{ form.media }}
+{% endblock %}
+{% block content %}
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Máquinas del Gimnasio
+                </h2>
+            </div>
+                <div class="row">
+                    <form action="{% url "admin_ver_maquinas"%}" method="get"></form>
+                </div>
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <hr>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Codigo QR</th>
+                        <th>ID</th>
+                        <th>Nombre_maquina</th>
+                        <th>Nombre_foto</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for maquina in Maquinas %}
+                        <tr>
+                            <td>
+                                <img width="100px"  src="{% static 'media' %}/{{ maquina.foto }}">
+                            </td>
+                            <td>{{ maquina.pk }}</td>
+                            <td>{{ maquina.Nombre_maquina }}</td>
+                            <td>{{ maquina.foto.name }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+    </div>
+{% endblock %}
+

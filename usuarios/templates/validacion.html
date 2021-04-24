@@ -1,0 +1,78 @@
+{% extends 'index.html' %}
+
+{% load static %}
+{% load staticfiles %}
+
+{% block header %}
+    <script src="{% static 'web_rosetta/js/validacion_usuarios.js' %}"></script>
+
+    <style>
+        .loader {
+            border: 16px solid #f3f3f3; /* Light grey */
+            border-top: 16px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+    <section class="blog-header blog-post-header politica">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1 wow fadeInUp" data-wow-duration="2s">
+                    <h1 class="title">
+                        ACTIVACIÓN DE CUENTA
+                    </h1>
+                    <div class="path"><span><a style="color: white" href="{% url 'inicio' %}">Inicio</a></span> /
+                        Validación
+                    </div>
+                </div>
+                {#                <div class="bottom-line"></div>#}
+            </div><!--row-->
+        </div><!--container-->
+    </section>
+{% endblock %}
+{% block content %}
+    <section style="margin-bottom: 50px">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" style="text-align: justify">
+                    <br>
+                    <div id="resultado">
+                        {% if key == -1 %}
+                            <div>
+                                <p class="alert alert-danger">
+                                    Error de validación.
+                                </p>
+                                {% if user != -1 %}
+                                    <button class="btn btn-primary" style="margin: auto; display: block" onclick="
+{#{% enviar_enlace_validacion user %}#}
+                                            ">Enviar de nuevo</button>
+                                {% else %}
+                                    <button class="btn btn-primary" style="margin: auto; display: block" onclick="">Enviar de nuevo</button>
+                                {% endif %}
+                            </div>
+                        {% else %}
+                            <div>
+                                <p class="alert alert-primary">
+                                    Registro completado correctamente. Ya puedes iniciar sesión en la aplicación.
+                                </p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <br><br>
+            </div>
+        </div>
+    </section>
+{% endblock %}

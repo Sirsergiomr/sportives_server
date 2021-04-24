@@ -1,0 +1,84 @@
+{% load static bootstrap %}
+
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, maximum-scale=1">
+
+    <title>Pago realizado</title>
+    <link rel="icon" href="{% static 'web/images/favicon.png' %}" type="image/png">
+    <link rel="shortcut icon" href="{% static 'web/images/favicon.png' %}" type="img/x-icon">
+
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,800italic,700italic,600italic,400italic,300italic,800,700,600'
+          rel='stylesheet' type='text/css'>
+
+    <link href="{% static 'web/css/bootstrap.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'web/css/style.css' %}" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="{% static 'web/js/bootstrap.min.js' %}"></script>
+
+    <style>
+        button {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0);
+            background-color: #56B268;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            padding: 5px 20px 5px 20px
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+
+</head>
+
+<body style="background-image: url('{% static 'web/images/background_design.png' %}'); background-size: contain; background-repeat: no-repeat; background-position-x: right; font-family: 'Montserrat', sans-serif">
+
+
+<!--main-section alabaster-start-->
+<div class="center" style="margin: 0 20px 0 20px">
+    <div>
+        <img style="display:block;
+margin:auto;" src="/static/web/images/Logotipup.png" alt="logo-tipup">
+        <h4 style="color: #56B268 !important; text-align: center; font-family: inherit; font-weight: bold; text-transform: none">
+            Gracias {{ propina.creador.username }} por ayudar al
+            Crecimiento profesional de
+            las personas</h4>
+{#        <h4 style="color: #062A3A !important; text-align: center; font-family: inherit; text-transform: none">Gracias#}
+{#            por ayudar al#}
+{#            Crecimiento profesional de#}
+{#            las personas</h4>#}
+        <button type="button" onclick="Android.finalizarPago()">Volver</button>
+        <br><br><br>
+        <p style="text-align: center;">Recuerda seguirnos en Instagram</p>
+        <a href="https://www.instagram.com/tipup_oficial/" target="_blank" rel="nofollow"><img style="display:block; margin:auto;" src="/static/web/images/3721672-instagram_108066.png" alt="logo-tipup" width="50px"></a>
+
+    </div>
+</div>
+<footer style="padding: 10px 10px 10px 10px; position: absolute; bottom: 0; width: 100%; background-color: #222222; color: lightgrey">
+    <div class="container">
+
+        <span class="copyright">&copy; TipUp. Todos los derechos reservados</span>
+        <div class="credits">
+            Desarrollado por <a href="http://dreamsappscreative.es/">Desarrollo Binario</a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

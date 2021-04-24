@@ -1,0 +1,288 @@
+
+.opinions {
+    margin-bottom: 0px !important;
+}
+
+.adoption a {
+    height: 260px;
+}
+
+.adoption a img {
+    min-height: 260px;
+}
+
+#c-carousel a {
+    height: 275px;
+}
+
+#c-carousel img {
+    min-height: 275px;
+}
+
+.description-text {
+    margin-bottom: 70px;
+}
+
+.testimonials {
+    background-position: center;
+    background-size: cover;
+}
+
+.centered-image {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+/* Home carousel */
+
+#home_carousel {
+    height: auto !important;
+    background: none !important;
+    padding-top: 50%;
+}
+
+#home_carousel img {
+    object-fit: cover;
+}
+
+#home_carousel .carousel-inner {
+    position: absolute;
+    top: 0;
+    height: 100%;
+}
+
+
+/* Services */
+
+.service {
+    min-height: 285px;
+}
+
+
+/* Coments */
+
+.testimonials .carousel-inner > .item {
+    height: 62.4px;
+}
+
+
+/* Logo carousel */
+#clients {
+    background-color: #F2F2F2;
+    height: 98px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+    margin-top: 32px;
+}
+
+#clients .clients-wrap {
+	display: block;
+	width: 95%;
+    height: 98px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#clients .clients-wrap ul {
+	display: block;
+	list-style: none;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#clients .clients-wrap ul li {
+  display: block;
+  float: left;
+  position: relative;
+  width: 150px;
+  height: 98px;
+  line-height: 100px;
+  text-align: center;
+}
+
+@media (min-width: 720px) {
+    #clients .clients-wrap ul li {
+        width: 180px;
+    }
+}
+
+@media (min-width: 960px) {
+    #clients .clients-wrap ul li {
+        width: 210px;
+    }
+}
+
+@media (min-width: 1140px) {
+    #clients .clients-wrap ul li {
+        width: 224px;
+    }
+}
+
+
+#clients .clients-wrap ul li img {
+  vertical-align: middle;
+  max-width: 100%;
+  max-height: 80%;
+  -webkit-transition: 0 linear left;
+  -moz-transition: 0 linear left;
+  transition: 0 linear left;
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=65)";
+  filter: alpha(opacity=65);
+  opacity: 0.65;
+}
+#clients .clients-wrap ul li img:hover {
+  -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: alpha(opacity=100);
+  opacity: 1.0;
+}
+
+
+/* Progress */
+
+.s-py-45 > [class*='container'] {
+    padding-bottom: 45px;
+    padding-top: 45px;
+}
+
+@media (min-width: 768px) {
+    .s-py-md-75 > [class*='container'] {
+        padding-bottom: 52px;
+        padding-top: 52px;
+    }
+}
+
+@media (min-width: 768px) {
+    .section-progress .col-md-3:not(:last-child) {
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+    }
+}
+
+.section-progress {
+    background: #363b3f url(../images/progress_bg.jpg) 0 0 no-repeat;
+    clear: both;
+    position: relative;
+    margin-top: 70px;
+}
+
+.s-parallax {
+    background-attachment: fixed;
+    background-position: 50% 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.section-progress .icon-box {
+    margin: 15px 0;
+}
+
+.section-progress h3 {
+    margin-bottom: 11px;
+    font-size: 34px;
+}
+
+.section-progress h3 span {
+    background: none;
+    font-size: 34px;
+}
+
+.color-main4 {
+    border-color: #65c178;
+    color: #65c178 !important;
+}
+
+.ds p {
+    color: #fff;
+    font-size: 20px;
+}
+ul:last-child, ol:last-child, p:last-child {
+    margin-bottom: 0;
+}
+.small-text {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.section-progress.s-overlay.ds::before {
+    opacity: 0.8;
+}
+
+.s-overlay.ds::before {
+    background-color: #0a272c;
+}
+
+.s-parallax:before, .s-overlay:before {
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+
+/* go top */
+
+.go-top {
+    position: fixed;
+    cursor: pointer;
+    bottom: 30px;
+    right: 20px;
+    font-size: 25px;
+    color: #ffffff;
+    background-color: #2A3034;
+    z-index: 1;
+    display: none;
+    width: 40px;
+    text-align: center;
+    height: 40px;
+    line-height: 34px;
+    border-radius: 50%;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.go-top:hover {
+    background-color: #65c178;
+}
+
+.go-top img {
+    width: 22px;
+    height: 22px;
+}
+
+
+/* Modal */
+
+.modal-dialog {
+    max-width: 75% !important;
+    width: fit-content !important;
+}
+
+
+/* Footer */
+
+.copyright {
+    margin-bottom: 16px;
+}
+
+
+/* Ethical Code */
+
+#ethical-code p, #about-us p {
+    white-space: pre-line;
+}
+
+
+/* logo */
+
+.logo-waucan {
+    height: 75px;
+    margin-left: 6px;
+}
