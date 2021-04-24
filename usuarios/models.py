@@ -92,7 +92,7 @@ class Entrenamiento(models.Model):
     maquina = models.ForeignKey(Maquina,on_delete=models.CASCADE)
     descripcion = models.CharField(max_length=240, blank=True, null=True)
     fecha = models.DateTimeField(auto_now_add=True)
-
+    tiempo_uso = models.TimeField(default='00:00:00')
     def toJSON(self):
         json = {'pk': self.pk,
                 'usuario_pk': self.usuario.pk,
@@ -105,7 +105,8 @@ class Entrenamiento(models.Model):
                                                        ),
                 'descripcion': self.descripcion,
                 'maquina_pk':self.maquina.pk,
-                'maquina_nombre': self.maquina.Nombre_maquina
+                'maquina_nombre': self.maquina.Nombre_maquina,
+                'tiempo_uso':self.tiempo_uso
                 }
         return json
 class Activiadad(models.Model):
