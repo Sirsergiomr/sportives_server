@@ -82,7 +82,8 @@ class Maquina(models.Model):
         return u"%s" % self.Nombre_maquina
 
     def toJSON(self):
-        json = {'pk': self.pk,'nombre':self.Nombre_maquina,
+        json = {'pk': self.pk,
+                'nombre':self.Nombre_maquina,
                 'foto': str(self.foto)}
         return json
 

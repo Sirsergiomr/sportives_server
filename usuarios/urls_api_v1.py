@@ -21,7 +21,7 @@ urlpatterns = [
     url(r'^cambiar_datos/$', views_api_v1.cambiar_datos),
     url(r'^cambiar_apellidos/$', views_api_v1.cambiar_apellidos),
     url(r'^registrar-usuario/$', views_api_v1.registrar_usuario),
-    url(r'^existe-usuario/$', views_api_v1.check_user),
+    url(r'^get_maquina/$', views_api_v1.get_maquina),
     url(r'^registro_login_google/$', views_api_v1.registro_login_google),
     url(r'^registro_maquina/$', views_api_v1.registrar_maquina),
 

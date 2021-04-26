@@ -901,6 +901,34 @@ def registrar_maquina(request):
 #     return link_validacion
 
 
+
+
+@csrf_exempt
+def get_maquina(request):
+    print(request)
+    try:
+        datos = json.loads(request.POST['data'])
+        usuario_id = datos.get('usuario_id')
+        token = datos.get('token')
+        id_maquina = datos.get('id_maquina')
+    except Exception as e:
+        usuario_id = request.POST['usuario_id']
+        token = request.POST['token']
+        id_maquina = request.POST['id_maquina']
+
+    if comprobar_usuario(token, usuario_id):
+        try:
+            maquina = Maquina.objects.get(pk=id_maquina)
+            response_data = {'result': 'ok', 'message': 'ok', 'nombre': maquina.Nombre_maquina,
+                             "id_maquina": maquina.pk}
+        except Exception as e:
+            response_data = {'result': 'error', 'message': 'Máquina no encontrada'}
+    else:
+        response_data = {'result': 'login_error', 'message': 'Fallo de sesión'}
+
+    return JsonResponse(response_data)
+
+
 def enviar(mensaje):
     mensaje.send()
 
@@ -911,42 +939,5 @@ def enviar_email(asunto, mensaje, mensaje_html, destinos):
 
     t = threading.Thread(target=enviar, args=(msg,))
     t.start()
-
-
-@csrf_exempt
-def check_user(request):
-
-    try:
-        try:
-            datos = json.loads(request.POST['data'])
-            codigo = datos.get('codigo') #datos del QR (id de la máquina)
-            usuario_id = datos.get('usuario_id') #Id de MI usuario
-            token = datos.get('token') # Mi token
-        except Exception as e:
-            codigo = request.POST['codigo']
-            usuario_id = request.POST['usuario_id']
-            token = request.POST['token']
-
-
-        if comprobar_usuario(token, usuario_id):
-
-            #Asociar el token al usuario.
-            try:
-                maquina = Maquina.objects.get(pk=codigo)
-                response_data = {'result': 'ok', 'message': 'ok', 'nombre': maquina.Nombre_maquina, "maquina_id": maquina.pk}
-
-            except Exception as e:
-                response_data = {'result': 'error', 'message': 'Máquina no encontrada'}
-
-        else:
-            response_data = {'result': 'login_error', 'message': 'Fallo de sesión'}
-
-
-        return http.HttpResponse(json.dumps(response_data), content_type="application/json")
-
-    except Exception as e:
-
-        response_data = {'errorcode': 'U0001', 'result': 'error', 'message': str(e)}
-        return http.HttpResponse(json.dumps(response_data), content_type="application/json")
 
 
