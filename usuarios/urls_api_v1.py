@@ -24,6 +24,8 @@ urlpatterns = [
     url(r'^get_maquina/$', views_api_v1.get_maquina),
     url(r'^registro_login_google/$', views_api_v1.registro_login_google),
     url(r'^registro_maquina/$', views_api_v1.registrar_maquina),
+    url(r'^registrar_entrenamiento/$', views_api_v1.registrar_entrenamiento),
+
 
 ]
 

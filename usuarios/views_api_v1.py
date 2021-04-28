@@ -35,7 +35,7 @@ import json
 import datetime
 
 from utilidades import Token
-from usuarios.models import Tokenregister, DatosExtraUser, Validacion, Maquina
+from usuarios.models import Tokenregister, DatosExtraUser, Validacion, Maquina, Activiadad, Entrenamiento
 
 from django.contrib.auth.models import User
 import logging
@@ -893,14 +893,47 @@ def registrar_maquina(request):
     else:
         response_data= {'result': 'error', 'message': 'Usuario no logeado'}
     return JsonResponse(response_data)
+@csrf_exempt
+def registrar_entrenamiento(request):
+    try:
+        datos = json.loads(request.POST['data'])
+        usuario_id = datos.get('usuario_id')
+        token = datos.get('token')
+        fecha = datos.get('fecha')
+        hora = datos.get('hora');
+        nombre_maquina = datos.get('nombre_maquina')
+        tiempo_uso = datos.get('tiempo_uso')
+        id_maquina = datos.get('id_maquina')
+    except Exception as e:
+        usuario_id = request.POST['usuario_id']
+        token = request.POST['token']
+        fecha = request.POST['fecha']
+        hora = request.POST['hora']
+        nombre_maquina = request.POST['nombre_maquina']
+        id_maquina = request.POST['id_maquina']
 
-# def generate_link(user):
-#     random = get_random_string(length=30)
-#     validacion_bd = Validacion.objects.create(usuario=user, validation_id=random)
-#     link_validacion = 'https://example.com/validacion/' + str(user.pk) + "_" + validacion_bd.validation_id
-#     return link_validacion
 
 
+    if comprobar_usuario(token, usuario_id):
+        print("hola")
+        userdjango = get_userdjango_by_token(token)
+        try:
+          actividad = Activiadad.objects.get(fecha=fecha)
+          print("La actividad ya existe")
+        except Exception as e:
+            print("La actividad no existe, la vamos a crear")
+
+            actividad = Activiadad.objects.create(usuario=userdjango, fecha=fecha,nombre_activida=nombre_maquina)
+            actividad.save()
+
+        fecha_final = fecha+" "+hora
+
+        entrenamiento = Entrenamiento.objects.create(usuario=userdjango, Nombre_maquina=nombre_maquina, descripcion="", fecha=fecha_final, tiempo_uso=tiempo_uso)
+        entrenamiento.save()
+        response_data = {'result': 'ok', 'message': 'Todo bien, todo correcto, y yo que me alegro'}
+    else:
+        response_data= {'result': 'error', 'message': 'Usuario no logeado'}
+    return JsonResponse(response_data)
 
 
 @csrf_exempt
@@ -941,3 +974,8 @@ def enviar_email(asunto, mensaje, mensaje_html, destinos):
     t.start()
 
 
+# def generate_link(user):
+#     random = get_random_string(length=30)
+#     validacion_bd = Validacion.objects.create(usuario=user, validation_id=random)
+#     link_validacion = 'https://example.com/validacion/' + str(user.pk) + "_" + validacion_bd.validation_id
+#     return link_validacion
