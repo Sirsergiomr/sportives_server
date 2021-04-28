@@ -8,5 +8,5 @@ admin.site.register(DatosExtraUser,DatosExtraAdmin)
 admin.site.register(Validacion)
 admin.site.register(Maquina)
 admin.site.register(Entrenamiento)
-admin.site.register(Activiadad)
+admin.site.register(Actividad)
 

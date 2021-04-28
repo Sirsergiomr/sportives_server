@@ -91,36 +91,36 @@ class Maquina(models.Model):
 class Entrenamiento(models.Model):
     usuario = models.ForeignKey(User,on_delete=models.CASCADE)
     Nombre_maquina = models.CharField(max_length=55, blank=True)
-    descripcion = models.CharField(max_length=240, blank=True, null=True)
-    fecha = models.DateTimeField(auto_now_add=False)
+    fecha = models.DateField(auto_now_add=False)
+    hora = models.TimeField(auto_now_add=False)
     tiempo_uso = models.TimeField(default='00:00:00')
+
     def toJSON(self):
         json = {'pk': self.pk,
                 'usuario_pk': self.usuario.pk,
                 'usuario_username': self.usuario.username,
-                'fecha': "%02d/%02d/%04d" % (self.fecha.day,
-                                             self.fecha.month,
-                                             self.fecha.year,),
-                'hora': "%02d:%02d" % (self.fecha.hour,
-                                       self.fecha.minute),
-                'descripcion': self.descripcion,
-                'maquina_pk':self.maquina.pk,
-                'maquina_nombre': self.maquina.Nombre_maquina,
+                'fecha': self.fecha,
+                'hora':self.hora,
+                'nombre_maquina': self.Nombre_maquina,
                 'tiempo_uso':self.tiempo_uso
                 }
         return json
-class Activiadad(models.Model):
+class Actividad(models.Model):
     usuario  = models.ForeignKey(User,on_delete=models.CASCADE)
-    fecha = models.DateTimeField(auto_now_add=False)
-    nombre_activida = models.CharField(max_length=55, blank=True, null=True)
+
+    fecha = models.DateField(auto_now_add=False)
+
+    nombre_actividad = models.CharField(max_length=55, blank=True, null=True)
+    descripcion = models.CharField(max_length=240, blank=True, null=True)
+    def __str__(self):
+        return u"%s" % self.nombre_actividad
     def toJSON(self):
         json = {'pk': self.pk,
-                'nombre':self.nombre_activida,
+                'nombre':self.nombre_actividad,
                 'usuario_pk': self.usuario.pk,
                 'usuario_username': self.usuario.username,
-                'fecha':"%02d/%02d/%04d% " % (self.fecha.day,
-                                              self.fecha.month,
-                                              self.fecha.year),
+                'fecha':str(self.fecha),
+                'descripcion': self.descripcion,
                 }
         return json
 

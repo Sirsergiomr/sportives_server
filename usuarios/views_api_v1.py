@@ -35,7 +35,7 @@ import json
 import datetime
 
 from utilidades import Token
-from usuarios.models import Tokenregister, DatosExtraUser, Validacion, Maquina, Activiadad, Entrenamiento
+from usuarios.models import Tokenregister, DatosExtraUser, Validacion, Maquina, Actividad, Entrenamiento
 
 from django.contrib.auth.models import User
 import logging
@@ -912,28 +912,25 @@ def registrar_entrenamiento(request):
         nombre_maquina = request.POST['nombre_maquina']
         id_maquina = request.POST['id_maquina']
 
-
-
     if comprobar_usuario(token, usuario_id):
-        print("hola")
         userdjango = get_userdjango_by_token(token)
         try:
-          actividad = Activiadad.objects.get(fecha=fecha)
-          print("La actividad ya existe")
+          actividad = Actividad.objects.get(fecha=fecha)
         except Exception as e:
-            print("La actividad no existe, la vamos a crear")
-
-            actividad = Activiadad.objects.create(usuario=userdjango, fecha=fecha,nombre_activida=nombre_maquina)
+            actividad = Actividad.objects.create(usuario=userdjango, fecha=fecha,nombre_actividad=nombre_maquina)
             actividad.save()
 
-        fecha_final = fecha+" "+hora
 
-        entrenamiento = Entrenamiento.objects.create(usuario=userdjango, Nombre_maquina=nombre_maquina, descripcion="", fecha=fecha_final, tiempo_uso=tiempo_uso)
+
+        entrenamiento = Entrenamiento.objects.create(usuario=userdjango, Nombre_maquina=nombre_maquina, fecha=fecha, hora=hora, tiempo_uso=tiempo_uso)
         entrenamiento.save()
         response_data = {'result': 'ok', 'message': 'Todo bien, todo correcto, y yo que me alegro'}
     else:
         response_data= {'result': 'error', 'message': 'Usuario no logeado'}
     return JsonResponse(response_data)
+
+
+
 
 
 @csrf_exempt
@@ -959,6 +956,69 @@ def get_maquina(request):
     else:
         response_data = {'result': 'login_error', 'message': 'Fallo de sesión'}
 
+    return JsonResponse(response_data)
+@csrf_exempt
+def get_entrenamientos(request):
+    print(request)
+    try:
+        datos = json.loads(request.POST['data'])
+        usuario_id = datos.get('usuario_id')
+        token = datos.get('token')
+        fecha = datos.get('fecha')
+    except Exception as e:
+        usuario_id = request.POST['usuario_id']
+        token = request.POST['token']
+        fecha = request.POST['fecha']
+
+    lista = []
+
+    if comprobar_usuario(token, usuario_id):
+
+        entrenamientos = Entrenamiento.objects.all()
+
+        if entrenamientos.filter(fecha=fecha) is not None:
+            entrenamientos = entrenamientos.filter(fecha=fecha)
+            for entrenar in entrenamientos:
+                lista.append(entrenar.toJSON())
+            response_data = {'result': 'ok', 'lista': lista}
+        else:
+            response_data = {'result': 'error', 'message': 'No se han encontrado entrenamientos con fehca' + fecha}
+    else:
+        response_data = {'result': 'login_error', 'message': 'Fallo de sesión'}
+    return JsonResponse(response_data)
+
+
+
+@csrf_exempt
+def get_actividades(request):
+    print(request)
+    try:
+        datos = json.loads(request.POST['data'])
+        usuario_id = datos.get('usuario_id')
+        token = datos.get('token')
+    except Exception as e:
+        usuario_id = request.POST['usuario_id']
+        token = request.POST['token']
+
+    lista = []
+
+    if comprobar_usuario(token, usuario_id):
+
+        userdjango = get_userdjango_by_token(token)
+
+        actividades = Actividad.objects.all()
+        if actividades.filter(usuario=userdjango) is not None:
+
+            actividades = actividades.filter(usuario=userdjango)
+            for actividad in actividades:
+                lista.append(actividad.toJSON())
+
+            response_data = {'result': 'ok', 'lista': lista}
+
+        else:
+            response_data = {'result': 'error', 'message': 'No se han encontrado actividades'}
+    else:
+        response_data = {'result': 'login_error', 'message': 'Fallo de sesión'}
     return JsonResponse(response_data)
 
 
