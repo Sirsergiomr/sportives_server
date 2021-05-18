@@ -19,6 +19,8 @@ from django.views.generic.edit import CreateView
 from configuracion import local_settings
 from configuracion import settings
 # from dreamsadmin import funciones_stripe
+from notificaciones import notificaciones
+from usuarios import funciones_stripe
 from utilidades.contrasena import contrasena_generator
 from django.core.mail import EmailMessage
 
@@ -35,7 +37,7 @@ import json
 import datetime
 
 from utilidades import Token
-from usuarios.models import Tokenregister, DatosExtraUser, Validacion, Maquina, Actividad, Entrenamiento
+from usuarios.models import Tokenregister, DatosExtraUser, Validacion, Maquina, Actividad, Entrenamiento, Anuncio
 
 from django.contrib.auth.models import User
 import logging
@@ -176,7 +178,6 @@ def login(request):
                                      'nombre': user.first_name,
                                      'tipo_sesion': datosExtra.tipo
                                      }
-
                 else:
                     token1 = str(user.id) + "_" + Token.id_generator()
                     user_token.token = token1
@@ -190,12 +191,12 @@ def login(request):
                     datosExtra.onesignal_id = os_user
                     datosExtra.save()
 
+
                     response_data = {'result': 'ok', 'message': 'Usuario logueado', 'token': user_token.token,
                                      'usuario': user.username,
                                      'nombre': user.first_name,
                                      'tipo_sesion': datosExtra.tipo
                                      }
-
                 if (os_user != "" and os_user is not None):
                     datosExtra.onesignal_id = os_user
                     datosExtra.save()
@@ -445,7 +446,6 @@ def get_perfil(request):
 
         if comprobar_usuario2(token,usuario_id):
             userdjango = get_userdjango_by_token(token)
-
 
 
             response_data = {'result': 'ok', 'message': 'Perfil de usuario',
@@ -920,8 +920,6 @@ def registrar_entrenamiento(request):
             actividad = Actividad.objects.create(usuario=userdjango, fecha=fecha,nombre_actividad=nombre_maquina)
             actividad.save()
 
-
-
         entrenamiento = Entrenamiento.objects.create(usuario=userdjango, Nombre_maquina=nombre_maquina, fecha=fecha, hora=hora, tiempo_uso=tiempo_uso)
         entrenamiento.save()
         response_data = {'result': 'ok', 'message': 'Todo bien, todo correcto, y yo que me alegro'}
@@ -974,6 +972,10 @@ def get_entrenamientos(request):
 
     if comprobar_usuario(token, usuario_id):
 
+        userdjango = get_userdjango_by_token(token)
+        os_temp = userdjango.datosextrauser.onesignal_id
+        notificaciones.notificacioInicioSesion(os_temp)
+
         entrenamientos = Entrenamiento.objects.all()
 
         if entrenamientos.filter(fecha=fecha) is not None:
@@ -1021,7 +1023,27 @@ def get_actividades(request):
         response_data = {'result': 'login_error', 'message': 'Fallo de sesión'}
     return JsonResponse(response_data)
 
+@csrf_exempt
+def get_anuncios(request):
+    print(request)
+    try:
+        datos = json.loads(request.POST['data'])
+        usuario_id = datos.get('usuario_id')
+        token = datos.get('token')
+    except Exception as e:
+        usuario_id = request.POST['usuario_id']
+        token = request.POST['token']
 
+    lista = []
+
+    if comprobar_usuario(token, usuario_id):
+        anuncios = Anuncio.objects.all()
+        for oferta in anuncios:
+            lista.append(oferta.toJSON())
+        response_data = {'result': 'ok', 'lista': lista}
+    else:
+        response_data = {'result': 'login_error', 'message': 'Fallo de sesión'}
+    return JsonResponse(response_data)
 def enviar(mensaje):
     mensaje.send()
 
@@ -1033,7 +1055,98 @@ def enviar_email(asunto, mensaje, mensaje_html, destinos):
     t = threading.Thread(target=enviar, args=(msg,))
     t.start()
 
+class GuardarTarjeta(CreateView):
+    def get(self, request, *args, **kwargs):
+        user = User.objects.get(pk=self.kwargs['pk'])
+        print(request.META["HTTP_TOKEN"])
 
+        token = request.META["HTTP_TOKEN"]
+
+        if comprobar_usuario(token , self.kwargs['pk']):
+
+            try:
+                user.datosextrauser.id_customer_stripe
+            except:
+                DatosExtraUser.objects.create(usuario=user)
+
+            if user.datosextrauser.id_customer_stripe is None or user.datosextrauser.id_customer_stripe == "":
+                # si no hay cliente lo creamos y guardamos su id
+                stripe.api_key = local_settings.STRIPE_SECRET_KEY
+                cliente_stripe = stripe.Customer.create(
+                    description=user.username,
+                    email=user.email
+                )
+                user.datosextrauser.id_customer_stripe = cliente_stripe['id']
+                user.datosextrauser.save()
+
+            checkout_session = funciones_stripe.guardar_tarjeta(user)
+            return render(self.request, "checkout.html", {'user': user,
+                                        'CHECKOUT_SESSION_ID': checkout_session.id})
+        else:
+            return render(self.request, "sesion_expirada.html", {})
+
+@csrf_exempt
+def eraserCards(request):
+    try:
+        datos = json.loads(request.POST['data'])
+        usuario_id = datos.get("usuario_id")
+        token = datos.get('token')
+    except Exception as e:
+        usuario_id = request.POST['usuario_id']
+        token = request.POST['token']
+
+    if comprobar_usuario(token, usuario_id):
+        user = get_userdjango_by_token(token)
+        funciones_stripe.borrar_todos_metodos_pago(user)
+        response_data = {'result': 'ok', 'message': 'tarjetas borradas'}
+
+    else:
+        response_data = {'result': 'error', 'message': 'usuario incorrecto', 'codigo': "nice"}
+    return JsonResponse(response_data)
+
+@csrf_exempt
+def get_tarjetas(request):
+    try:
+        try:
+            datos = json.loads(request.POST['data'])
+            token = datos.get("token")
+            usuario_id = datos.get("usuario_id")
+        except:
+            usuario_id = request.POST['usuario_id']
+            token = request.POST['token']
+
+        if comprobar_usuario(token, usuario_id):
+            user = get_userdjango_by_token(token)
+            lista = []
+            payment_methods = funciones_stripe.get_tarjetas(user)['data']
+            # payment_methods = StripeCard.objects.filter(user=get_userdjango_by_token(token))
+            created = 0
+            pm = None
+            if payment_methods is not None and payment_methods.__len__() > 0:
+                for paymen_method in payment_methods:
+
+                    if paymen_method['created'] > created:
+                        created = paymen_method['created']
+                        pm = paymen_method
+                    else:
+                        funciones_stripe.borrar_metodo_pago(paymen_method['id'])
+
+                lista.append({'pk': pm['id'],
+                              'caducidad': str(pm['card']['exp_month']) + "/" + str(pm['card']['exp_year']),
+                              'end_digits': pm['card']['last4'],
+                              'titular': "Tarjeta",
+                              'tipo': pm['card']['brand']})
+                response_data = {'result': 'ok', 'message': 'ok', 'lista': lista}
+            else:
+                response_data = {'result': 'no_cards', 'message': 'ok'}
+        else:
+            # print "error"
+            response_data = {'result': 'error', 'message': 'no_ok'}
+        return http.HttpResponse(json.dumps(response_data), content_type="application/json")
+    except Exception as e:
+        print(e)
+        response_data = {'errorcode': 'U0005', 'result': 'error', 'message': 'Error en crear usuario. ' + str(e)}
+        return http.HttpResponse(json.dumps(response_data), content_type="application/json")
 # def generate_link(user):
 #     random = get_random_string(length=30)
 #     validacion_bd = Validacion.objects.create(usuario=user, validation_id=random)

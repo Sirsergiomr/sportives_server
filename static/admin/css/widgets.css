@@ -32,12 +32,12 @@
 }
 
 .selector .selector-available h2 {
-    background: #f8f8f8;
+    background: #79aec8;
     color: #666;
 }
 
 .selector .selector-filter {
-    background: white;
+    background: #79aec8;
     border: 1px solid #ccc;
     border-width: 0 1px;
     padding: 8px;
@@ -66,7 +66,7 @@
 .selector ul.selector-chooser {
     float: left;
     width: 22px;
-    background-color: #eee;
+    background-color: #003040;
     border-radius: 10px;
     margin: 10em 5px 0 5px;
     padding: 0;
@@ -192,7 +192,7 @@ a.active.selector-clearall:focus, a.active.selector-clearall:hover {
     height: 22px;
     width: 50px;
     margin: 0 0 10px 40%;
-    background-color: #eee;
+    background-color: #003040;
     border-radius: 10px;
 }
 

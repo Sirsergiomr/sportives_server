@@ -48,6 +48,8 @@ User.__unicode__ = user_new_unicode
 
 def upload_maquina(instance, filename):
     return os.path.join("maquinas/%s" % instance.usuario.slug, filename)
+def upload_image(instance, filename):
+    return os.path.join("Imagenes_anuncios/%s" % instance.usuario.slug, filename)
 
 
 def generar_qr(cadena):
@@ -92,7 +94,8 @@ class Entrenamiento(models.Model):
     usuario = models.ForeignKey(User,on_delete=models.CASCADE)
     Nombre_maquina = models.CharField(max_length=55, blank=True)
     fecha = models.DateField(auto_now_add=False)
-    hora = models.TimeField(auto_now_add=False)
+    descripcion = models.CharField(max_length=240, blank=True, null=True)
+    hora = models.TimeField( )
     tiempo_uso = models.TimeField(default='00:00:00')
 
     def toJSON(self):
@@ -102,9 +105,11 @@ class Entrenamiento(models.Model):
                 'fecha': self.fecha,
                 'hora':self.hora,
                 'nombre_maquina': self.Nombre_maquina,
-                'tiempo_uso':self.tiempo_uso
+                'tiempo_uso':self.tiempo_uso,
+                'descripcion':self.descripcion
                 }
         return json
+
 class Actividad(models.Model):
     usuario  = models.ForeignKey(User,on_delete=models.CASCADE)
 
@@ -121,6 +126,24 @@ class Actividad(models.Model):
                 'usuario_username': self.usuario.username,
                 'fecha':str(self.fecha),
                 'descripcion': self.descripcion,
+                }
+        return json
+
+class Anuncio(models.Model):
+    nombre_anuncio = models.CharField(max_length=55, blank=True, null=True)
+    fecha = models.DateField(auto_now_add=True)
+    descripcion = models.CharField(max_length=240, blank=True, null=True)
+    precio = models.IntegerField(default=0)
+
+    image = models.ImageField()
+
+    def toJSON(self):
+        json = {'pk': self.pk,
+                'nombre':self.nombre_anuncio,
+                'precio':self.precio,
+                'fecha':str(self.fecha),
+                'descripcion': self.descripcion,
+                'imagen':str(self.image)
                 }
         return json
 

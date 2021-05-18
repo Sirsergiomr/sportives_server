@@ -9,7 +9,7 @@ body {
     padding: 0;
     font-size: 14px;
     font-family: "Roboto","Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
-    color: #333;
+    color: #fff;
     background: #003040;
 }
 
@@ -60,7 +60,7 @@ h1 {
     margin: 0 0 20px;
     font-weight: 300;
     font-size: 20px;
-    color: #666;
+    color: #fff;
 }
 
 h2 {
@@ -76,7 +76,7 @@ h2.subhead {
 h3 {
     font-size: 14px;
     margin: .8em 0 .3em 0;
-    color: #666;
+    color: #fff;
     font-weight: bold;
 }
 
@@ -273,7 +273,7 @@ tfoot td {
 }
 
 tr.alt {
-    background: #f6f6f6;
+    background: #003040;
 }
 
 .row1 {
@@ -290,7 +290,7 @@ thead th {
     padding: 5px 10px;
     line-height: normal;
     text-transform: uppercase;
-    background: #f6f6f6;
+    background: #003040;
 }
 
 thead th a:link, thead th a:visited {
@@ -298,7 +298,7 @@ thead th a:link, thead th a:visited {
 }
 
 thead th.sorted {
-    background: #eee;
+    background: #003040;
 }
 
 thead th.sorted .text {
@@ -317,7 +317,7 @@ table thead th .text a {
 }
 
 table thead th .text a:focus, table thead th .text a:hover {
-    background: #eee;
+    background: #003040;
 }
 
 thead th.sorted a.sortremove {
@@ -483,7 +483,7 @@ input[type=button][disabled].default {
 .module {
     border: none;
     margin-bottom: 30px;
-    background: #fff;
+    background: #003040;
 }
 
 .module p, .module ul, .module h3, .module h4, .module dl, .module pre {
@@ -919,7 +919,7 @@ table#change-history tbody th {
     margin-bottom: 16px;
     border-bottom: 1px solid #eaeaea;
     font-size: 18px;
-    color: #333;
+    color: #fff;
 }
 
 .delete-confirmation form input[type="submit"] {

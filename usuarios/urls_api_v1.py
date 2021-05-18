@@ -27,6 +27,10 @@ urlpatterns = [
     url(r'^registrar_entrenamiento/$', views_api_v1.registrar_entrenamiento),
     url(r'^get_entrenamientos/$', views_api_v1.get_entrenamientos),
     url(r'^get_actividades/$', views_api_v1.get_actividades),
+    url(r'^get_anuncios/$', views_api_v1.get_anuncios),
+    url(r'^eraser_cards/$', views_api_v1.eraserCards),
+    url(r'^guardar_tarjeta/$', views_api_v1.GuardarTarjeta),
+    url(r'^get_tarjetas/$', views_api_v1.get_tarjetas),
 
 
 ]
