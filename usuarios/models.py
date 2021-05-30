@@ -5,6 +5,7 @@ import qrcode
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
+from django.db.models.deletion import DO_NOTHING
 from django.template.defaultfilters import slugify
 
 
@@ -112,9 +113,7 @@ class Entrenamiento(models.Model):
 
 class Actividad(models.Model):
     usuario  = models.ForeignKey(User,on_delete=models.CASCADE)
-
     fecha = models.DateField(auto_now_add=False)
-
     nombre_actividad = models.CharField(max_length=55, blank=True, null=True)
     descripcion = models.CharField(max_length=240, blank=True, null=True)
     def __str__(self):
@@ -134,7 +133,6 @@ class Anuncio(models.Model):
     fecha = models.DateField(auto_now_add=True)
     descripcion = models.CharField(max_length=240, blank=True, null=True)
     precio = models.IntegerField(default=0)
-
     image = models.ImageField()
 
     def toJSON(self):
@@ -143,10 +141,32 @@ class Anuncio(models.Model):
                 'precio':self.precio,
                 'fecha':str(self.fecha),
                 'descripcion': self.descripcion,
-                'imagen':str(self.image)
+                'imagen':str(self.image),
                 }
         return json
 
+
+class Transaccion(models.Model):
+    creador = models.ForeignKey(User, related_name="creador_sevicio_set", on_delete=DO_NOTHING)
+    receptor = models.ForeignKey(User, related_name="receptor_sevicio_set", on_delete=DO_NOTHING)
+    cantidad = models.IntegerField(default=0)
+    fecha = models.DateTimeField(auto_now_add=True)
+    pagado = models.BooleanField(default=False)
+    anuncio = models.ForeignKey(Anuncio ,on_delete=DO_NOTHING)
+    def toJSON(self):
+        json = {'pk': self.pk,
+                'creador_pk': self.creador.pk,
+                'creador_username': self.creador.first_name,
+                'receptor_pk': self.receptor.pk,
+                'receptor_username': self.receptor.first_name,
+                'cantidad': self.cantidad,
+                'fecha':str(self.fecha),
+                'pagado':self.pagado,
+                'anucio_id':self.anuncio.pk
+                }
+        return json
+    def __str__(self):
+        return u"%s" % self.creador.username
 class Tokenregister(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     token = models.CharField(max_length=80)

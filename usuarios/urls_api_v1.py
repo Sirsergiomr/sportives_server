@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 # from dreamsadmin import funciones_stripe
 
-__author__ = 'ruben'
+__author__ = 'sergio'
 
 from django.conf.urls import url
 from usuarios import views_api_v1
@@ -29,15 +29,18 @@ urlpatterns = [
     url(r'^get_actividades/$', views_api_v1.get_actividades),
     url(r'^get_anuncios/$', views_api_v1.get_anuncios),
     url(r'^eraser_cards/$', views_api_v1.eraserCards),
-    url(r'^guardar_tarjeta/$', views_api_v1.GuardarTarjeta),
+    url(r'^guardar_tarjeta/(?P<pk>\d+)$', views_api_v1.GuardarTarjeta.as_view(), name='guardar_tarjeta'),
     url(r'^get_tarjetas/$', views_api_v1.get_tarjetas),
 
-
+    url(r'^pago-correcto/$', views_api_v1.PagoCorrecto.as_view(), name='pago_correcto'),
+    url(r'^pago-cancelado/$', views_api_v1.PagoCancelado.as_view(), name='pago_cancelado'),
+    url(r'^hacer_pago/$', views_api_v1.hacer_pago),
+    url(r'^get_contratados/$', views_api_v1.get_contratados),
+    url(r'^comprobar_conexion/$', views_api_v1.comprobar_conexion),
+    url(r'^eraser_entrenamientos/$', views_api_v1.eraser_entrenamientos),
+    url(r'^eraser_activity/$', views_api_v1.eraser_activity),
 ]
 
-# url(r'^get_url_pago/$', views_api_v1.get_url_pago),
-# url(r'^pagar/(?P<pk>\d+)$', views_api_v1.Pagar.as_view(), name='pagar_propina'),
-# url(r'^pago-correcto/$', views_api_v1.PagoCorrecto.as_view(), name='pago_correcto'),
-# url(r'^pago-cancelado/$', views_api_v1.PagoCancelado.as_view(), name='pago_cancelado'),
+
 # url(r'^guardar_tarjeta/(?P<pk>\d+)$', views_api_v1.GuardarTarjeta.as_view(), name='guardar_tarjeta'),
 # url(r'^get_tarjetas/$',views_api_v1.get_tarjetas),

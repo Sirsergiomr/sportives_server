@@ -10,4 +10,5 @@ admin.site.register(Maquina)
 admin.site.register(Entrenamiento)
 admin.site.register(Actividad)
 admin.site.register(Anuncio)
+admin.site.register(Transaccion)
 

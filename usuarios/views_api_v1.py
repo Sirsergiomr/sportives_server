@@ -37,7 +37,8 @@ import json
 import datetime
 
 from utilidades import Token
-from usuarios.models import Tokenregister, DatosExtraUser, Validacion, Maquina, Actividad, Entrenamiento, Anuncio
+from usuarios.models import Tokenregister, DatosExtraUser, Validacion, Maquina, Actividad, Entrenamiento, Anuncio, \
+    Transaccion
 
 from django.contrib.auth.models import User
 import logging
@@ -1044,6 +1045,8 @@ def get_anuncios(request):
     else:
         response_data = {'result': 'login_error', 'message': 'Fallo de sesión'}
     return JsonResponse(response_data)
+
+
 def enviar(mensaje):
     mensaje.send()
 
@@ -1069,6 +1072,9 @@ class GuardarTarjeta(CreateView):
             except:
                 DatosExtraUser.objects.create(usuario=user)
 
+            print("id customer = "+str(user.datosextrauser.id_customer_stripe))
+
+
             if user.datosextrauser.id_customer_stripe is None or user.datosextrauser.id_customer_stripe == "":
                 # si no hay cliente lo creamos y guardamos su id
                 stripe.api_key = local_settings.STRIPE_SECRET_KEY
@@ -1078,12 +1084,27 @@ class GuardarTarjeta(CreateView):
                 )
                 user.datosextrauser.id_customer_stripe = cliente_stripe['id']
                 user.datosextrauser.save()
-
+                print("GuardarTarjetas, cliente creado")
             checkout_session = funciones_stripe.guardar_tarjeta(user)
             return render(self.request, "checkout.html", {'user': user,
                                         'CHECKOUT_SESSION_ID': checkout_session.id})
         else:
             return render(self.request, "sesion_expirada.html", {})
+
+
+class PagoCorrecto(CreateView):
+    template_name = 'gracias_compra.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, {})
+
+
+class PagoCancelado(CreateView):
+    template_name = 'compra_cancelada.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(self.request, self.template_name, {})
+
 
 @csrf_exempt
 def eraserCards(request):
@@ -1147,6 +1168,176 @@ def get_tarjetas(request):
         print(e)
         response_data = {'errorcode': 'U0005', 'result': 'error', 'message': 'Error en crear usuario. ' + str(e)}
         return http.HttpResponse(json.dumps(response_data), content_type="application/json")
+
+@csrf_exempt
+def get_contratados(request):
+    print(request)
+    try:
+        datos = json.loads(request.POST['data'])
+        usuario_id = datos.get('usuario_id')
+        token = datos.get('token')
+    except Exception as e:
+        usuario_id = request.POST['usuario_id']
+        token = request.POST['token']
+
+    lista = []
+    if comprobar_usuario(token, usuario_id):
+        try:
+            mispagos = Transaccion.objects.all()
+            if mispagos.filter(creador=usuario_id) is not None:
+                for obj in mispagos.filter(creador=usuario_id):
+                    anuncio = Anuncio.objects.get(pk=obj.anuncio.pk)
+                    lista.append(anuncio.toJSON())
+                response_data = {'result': 'ok', 'message': 'ok', 'lista': lista}
+            else:
+                response_data = {'result': 'error', 'message': 'Transaccion no encontrada'}
+        except:
+            response_data = {'result': 'ok', 'message': 'La transaccion no existe','lista': lista}
+    else:
+        response_data = {'result': 'error', 'message': 'Usuario no logeado'}
+
+    print(response_data)
+    return JsonResponse(response_data)
+
+
+def comprobar_transaccion(anuncio_id, usurio_id):
+    try:
+        anuncio = Anuncio.objects.get(pk=anuncio_id)
+        if anuncio is not None:
+            tr = Transaccion.objects.get(anuncio=anuncio, creador = usurio_id)
+            if tr is not None:
+                return True
+            else:
+                return False
+        else:
+            return False
+    except:
+        return False
+
+@csrf_exempt
+def hacer_pago(request):
+    print(request.POST)
+    try:
+        datos = json.loads(request.POST['data'])
+        usuario_id = datos.get('usuario_id')
+        total = datos.get('total')
+        anuncio_id = datos.get('anuncio_id')
+        token = datos.get('token')
+    except:
+        usuario_id = request.POST['usuario_id']
+        total = request.POST['total']
+        anuncio_id = request.POST['anuncio_id']
+        token = request.POST['token']
+
+    if comprobar_usuario(token, usuario_id):
+        receptor = User.objects.get(pk=10)
+        if receptor is not None:
+            creador = User.objects.get(pk=usuario_id)
+            if creador.datosextrauser.id_customer_stripe is None or creador.datosextrauser.id_customer_stripe == '':
+                print("no id")
+                response_data = {'result': 'error',
+                                 'codigo': "0005",
+                                 'message': "Ha ocurrido un problema con su tarjeta de credito, necesita introducir una Tarjeta Bancaria válida"}
+
+            elif comprobar_transaccion(anuncio_id,usuario_id):
+                response_data = {'result': 'error', "codigo": "0004", 'message': "Ya se ha contratado ese servicio"}
+            else:
+                transaccion = Transaccion.objects.create(creador=creador,
+                                                         receptor=receptor,
+                                                         cantidad=total,
+                                                         anuncio=Anuncio.objects.get(pk=anuncio_id))
+
+                pagoOk, msg = funciones_stripe.securepay(total, transaccion)
+
+                print(total)
+                if pagoOk:
+                    print(total)
+                    response_data = {'result': 'ok', 'message': msg}
+                    print(msg)
+                else:
+                    response_data = {'result': 'error', "codigo": "0003", 'message': msg}
+        else:
+            response_data = {'result': 'error', 'message': 'Usuario no encontrado'}
+    else:
+        response_data = {'result': 'error', 'message': 'Usuario no logeado'}
+    return JsonResponse(response_data)
+@csrf_exempt
+def comprobar_conexion(request):
+    try:
+        datos = json.loads(request.POST['data'])
+        usuario_id = datos.get('usuario_id')
+        token = datos.get('token')
+    except Exception as e:
+        usuario_id = request.POST['usuario_id']
+        token = request.POST['token']
+
+    if comprobar_usuario(token, usuario_id):
+        response_data = {'result': 'ok', 'message': 'Usuario encontrado'}
+    else:
+        response_data = {'result': 'error', 'message': 'Usuario no encontrado'}
+    return JsonResponse(response_data)
+@csrf_exempt
+def eraser_entrenamientos(request):
+    try:
+        datos = json.loads(request.POST['data'])
+        usuario_id = datos.get('usuario_id')
+        token = datos.get('token')
+        entrenamiento_id = datos.get('entrenamiento_id')
+    except Exception as e:
+        usuario_id = request.POST['usuario_id']
+        token = request.POST['token']
+        entrenamiento_id = request.POST['entrenamiento_id']
+
+    if comprobar_usuario(token, usuario_id):
+
+        entrenamiento = Entrenamiento.objects.all()
+
+        if entrenamiento.filter(pk=entrenamiento_id) is not None:
+
+            print("Borrando entrenamioeno")
+
+            entrenamiento.filter(pk=entrenamiento_id).delete()
+
+            response_data = {'result': 'ok', 'message': 'Entrenamiento borrado'}
+        else:
+            response_data = {'result': 'error', 'message': 'Entrenamiento no  encontrado'}
+    else:
+        response_data = {'result': 'error', 'message': 'Usuario no encontrado'}
+    return JsonResponse(response_data)
+
+@csrf_exempt
+def eraser_activity(request):
+    try:
+        datos = json.loads(request.POST['data'])
+        usuario_id = datos.get('usuario_id')
+        token = datos.get('token')
+        actividad_id = datos.get('actividad_id')
+        fecha_actividad = datos.get('fecha')
+    except Exception as e:
+        usuario_id = request.POST['usuario_id']
+        token = request.POST['token']
+        actividad_id = request.POST['actividad_id']
+        fecha_actividad = request.POST['fecha']
+
+    if comprobar_usuario(token, usuario_id):
+
+        actividad = Actividad.objects.all()
+
+        if actividad.filter(pk=actividad_id) is not None:
+            entrenamientos = Entrenamiento.objects.all()
+
+            if entrenamientos.filter(fecha=fecha_actividad) is not None:
+                print("Borrando entrenamioeno")
+                actividad.filter(pk=actividad_id).delete()
+                entrenamientos.filter(fecha=fecha_actividad).delete()
+            response_data = {'result': 'ok', 'message': 'Actividad borrada'}
+        else:
+            response_data = {'result': 'error', 'message': 'Entrenamiento no  encontrado'}
+    else:
+        response_data = {'result': 'error', 'message': 'Usuario no encontrado'}
+    return JsonResponse(response_data)
+
+
 # def generate_link(user):
 #     random = get_random_string(length=30)
 #     validacion_bd = Validacion.objects.create(usuario=user, validation_id=random)

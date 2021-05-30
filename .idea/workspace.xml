@@ -2,16 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b55bfe2-1171-49f2-8fd3-0b2e4c39eb4f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/notificaciones/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notificaciones/notificaciones.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/usuarios/funciones_stripe.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/web/images/logo_sportives_titans.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configuracion/local_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/configuracion/local_settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dbsqlite" beforeDir="false" afterPath="$PROJECT_DIR$/dbsqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/css/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/admin/css/widgets.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/css/widgets.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usuarios/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/funciones_stripe.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/funciones_stripe.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usuarios/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/templates/checkout.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/checkout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/templates/compra_cancelada.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/compra_cancelada.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/templates/gracias_compra.html" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/templates/gracias_compra.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usuarios/urls_api_v1.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/urls_api_v1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usuarios/views_api_v1.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/views_api_v1.py" afterDir="false" />
     </list>
@@ -66,59 +66,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/usuarios/urls_api_v1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="22" column="53" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
-              <folding>
-                <element signature="e#92#124#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/usuarios/views_api_v1.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="1074" column="46" selection-start-line="1074" selection-start-column="46" selection-end-line="1074" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/stripe/api_resources/customer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="31" column="24" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="24" />
+            <state relative-caret-position="608">
+              <caret line="40" column="55" selection-start-line="40" selection-start-column="55" selection-end-line="40" selection-end-column="55" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/configuracion/local_settings.py">
+        <entry file="file://$PROJECT_DIR$/usuarios/views_api_v1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/usuarios/funciones_stripe.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="702">
-              <caret line="32" column="40" lean-forward="true" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://b1c79849-9557-4144-b97b-3e565b58dc74/schema/main/table/auth_user">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+            <state relative-caret-position="359">
+              <caret line="1328" column="62" selection-start-line="1328" selection-start-column="62" selection-end-line="1328" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -126,10 +84,31 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/usuarios/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-357">
-              <caret line="88" column="39" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
+            <state relative-caret-position="291">
+              <caret line="93" column="6" selection-start-line="93" selection-start-column="6" selection-end-line="93" selection-end-column="6" />
               <folding>
                 <element signature="e#26#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/usuarios/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="14" selection-start-line="14" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/usuarios/funciones_stripe.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-908">
+              <caret line="48" column="18" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -173,7 +152,6 @@
         <option value="$PROJECT_DIR$/configuracion/settings.py" />
         <option value="$PROJECT_DIR$/usuarios/templates/admin/info_maquinas.html" />
         <option value="$PROJECT_DIR$/usuarios/urls_admin.py" />
-        <option value="$PROJECT_DIR$/usuarios/templates/checkout.html" />
         <option value="$PROJECT_DIR$/configuracion/urls.py" />
         <option value="$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/django/contrib/admin/sites.py" />
         <option value="$PROJECT_DIR$/usuarios/urls.py" />
@@ -182,16 +160,19 @@
         <option value="$PROJECT_DIR$/static/admin/build/css/custom.css" />
         <option value="$PROJECT_DIR$/static/admin/css/login.css" />
         <option value="$PROJECT_DIR$/static/web/css/bootstrap.css" />
-        <option value="$PROJECT_DIR$/usuarios/admin.py" />
         <option value="$PROJECT_DIR$/usuarios/templates/info_maquinas.html" />
         <option value="$PROJECT_DIR$/static/admin/css/widgets.css" />
         <option value="$PROJECT_DIR$/static/admin/css/base.css" />
         <option value="$PROJECT_DIR$/notificaciones/notificaciones.py" />
-        <option value="$PROJECT_DIR$/usuarios/models.py" />
-        <option value="$PROJECT_DIR$/usuarios/funciones_stripe.py" />
-        <option value="$PROJECT_DIR$/usuarios/views_api_v1.py" />
-        <option value="$PROJECT_DIR$/usuarios/urls_api_v1.py" />
         <option value="$PROJECT_DIR$/configuracion/local_settings.py" />
+        <option value="$PROJECT_DIR$/usuarios/templates/checkout.html" />
+        <option value="$PROJECT_DIR$/usuarios/templates/gracias_compra.html" />
+        <option value="$PROJECT_DIR$/usuarios/templates/compra_cancelada.html" />
+        <option value="$PROJECT_DIR$/usuarios/admin.py" />
+        <option value="$PROJECT_DIR$/usuarios/funciones_stripe.py" />
+        <option value="$PROJECT_DIR$/usuarios/models.py" />
+        <option value="$PROJECT_DIR$/usuarios/urls_api_v1.py" />
+        <option value="$PROJECT_DIR$/usuarios/views_api_v1.py" />
       </list>
     </option>
   </component>
@@ -231,10 +212,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="976" />
-    <option name="height" value="1056" />
+    <option name="x" value="953" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -258,18 +238,18 @@
             <path>
               <item name="sportives_server" type="b2602c69:ProjectViewProjectNode" />
               <item name="sportives_server" type="462c0819:PsiDirectoryNode" />
-              <item name="notificaciones" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="sportives_server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="sportives_server" type="462c0819:PsiDirectoryNode" />
               <item name="usuarios" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sportives_server" type="b2602c69:ProjectViewProjectNode" />
               <item name="sportives_server" type="462c0819:PsiDirectoryNode" />
               <item name="usuarios" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="templatetags" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sportives_server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sportives_server" type="462c0819:PsiDirectoryNode" />
+              <item name="utilidades" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -282,21 +262,22 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../__000Dreamsapps/propinasserver" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../__000Dreamsapps/paqueteria/paqueteriaserver" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sirse\PycharmProjects\sportives_server\usuarios\templates" />
+      <recent name="C:\Users\sirse\PycharmProjects\sportives_server\usuarios" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sirse\PycharmProjects\sportives_server\static\web\images" />
       <recent name="C:\Users\sirse\PycharmProjects\sportives_server\usuarios\templates" />
       <recent name="C:\Users\sirse\PycharmProjects\sportives_server" />
       <recent name="C:\Users\sirse\PycharmProjects\sportives_server\configuracion" />
       <recent name="C:\Users\sirse\PycharmProjects\sportives_server\administrador" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\sirse\PycharmProjects\sportives_server\usuarios\templates" />
-      <recent name="C:\Users\sirse\PycharmProjects\sportives_server\usuarios" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -400,7 +381,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619612500723</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Implementando stripe primera parte y actualización de datos">
+      <created>1621371092749</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1621371092749</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -416,52 +404,54 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49941927" visible="true" weight="0.05010661" />
-      <window_info id="Structure" order="1" sideWeight="0.5005807" side_tool="true" visible="true" weight="0.05010661" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Database Console" weight="0.3264642" />
+      <window_info id="Structure" order="0" sideWeight="0.5017503" side_tool="true" weight="0.5656455" />
+      <window_info id="Favorites" order="1" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.4982497" visible="true" weight="0.053304903" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.49946696" visible="true" weight="0.06616052" />
+      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.4989339" weight="0.18763557" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50053304" side_tool="true" weight="0.021691974" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010661" side_tool="true" weight="0.329718" />
       <window_info anchor="bottom" id="Python Console" order="11" weight="0.3286334" />
-      <window_info anchor="bottom" id="Terminal" order="12" weight="0.18980478" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.2635575" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.329718" />
+      <window_info anchor="bottom" id="Database Console" order="14" weight="0.3264642" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info active="true" anchor="right" id="Database" order="4" visible="true" weight="0.16044776" />
+      <window_info anchor="right" id="SciView" order="3" weight="0.03731343" />
+      <window_info anchor="right" id="Database" order="4" weight="0.16044776" />
     </layout>
     <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16257995" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Structure" order="0" sideWeight="0.5017503" side_tool="true" weight="0.5656455" />
+      <window_info id="Favorites" order="1" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.4982497" visible="true" weight="0.19296375" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Debug" order="2" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Run" order="5" weight="0.31982476" />
+      <window_info active="true" anchor="bottom" id="Run" order="5" sideWeight="0.4989339" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.22234273" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32968238" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010661" side_tool="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Python Console" order="11" weight="0.3286334" />
+      <window_info anchor="bottom" id="Terminal" order="12" weight="0.2635575" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.329718" />
+      <window_info anchor="bottom" id="Database Console" order="14" weight="0.3264642" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" weight="0.32995737" />
+      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.03731343" />
+      <window_info anchor="right" id="Database" order="4" weight="0.16044776" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -478,107 +468,10 @@
     <MESSAGE value="Página ver máquinas funciona" />
     <MESSAGE value="get_maquina completo" />
     <MESSAGE value="Registrar entrenamientos ya funciona" />
-    <option name="LAST_COMMIT_MESSAGE" value="Registrar entrenamientos ya funciona" />
+    <MESSAGE value="Implementando stripe primera parte y actualización de datos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementando stripe primera parte y actualización de datos" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/admin/css/login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-446">
-          <caret line="24" column="20" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/web/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-39488" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/web/css/extra_style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5572" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/web/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-115902">
-          <caret line="529" column="13" lean-forward="true" selection-start-line="529" selection-start-column="13" selection-end-line="529" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/web/css/bootstrap.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-29601" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/jet/css/_base.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="726">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/jet/css/select2/_layout.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1716">
-          <caret line="9" column="42" lean-forward="true" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/views_admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="28" column="50" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/django/db/models/manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1672">
-          <caret line="81" selection-start-line="81" selection-end-line="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python39/Lib/json/encoder.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8">
-          <caret line="256" selection-start-line="256" selection-end-line="256" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/django/db/models/query.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="419" selection-start-line="419" selection-end-line="419" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/django/utils/datastructures.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="79" selection-start-line="79" selection-end-line="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/django/http/response.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="557" selection-start-line="557" selection-end-line="557" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python39/Lib/json/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="233" selection-start-line="233" selection-end-line="233" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/stripe/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/migrations/0021_auto_20210428_1858.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/usuarios/migrations/0020_auto_20210428_1856.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -643,13 +536,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/admin/css/base.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-308">
@@ -669,27 +555,10 @@
         <state relative-caret-position="-198" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/django/contrib/auth/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1186">
-          <caret line="356" column="6" selection-start-line="356" selection-start-column="6" selection-end-line="356" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/notificaciones/notificaciones.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -700,9 +569,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/configuracion/urls.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/configuracion/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-374">
@@ -710,10 +576,157 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://b1c79849-9557-4144-b97b-3e565b58dc74/schema/main/table/auth_user" />
+    <entry file="file://$PROJECT_DIR$/usuarios/templatetags/tags_usuarios.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="28" column="40" lean-forward="true" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/stripe/api_resources/customer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="27" column="18" lean-forward="true" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python39/Lib/site-packages/django/db/models/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-892">
+          <caret line="580" column="4" selection-start-line="580" selection-start-column="4" selection-end-line="580" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/templates/checkout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="7" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuracion/local_settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/web/images/logo_sportives_titans.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/django/db/models/deletion.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/templates/gracias_compra.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="817">
+          <caret line="63" column="7" selection-start-line="63" selection-start-column="7" selection-end-line="63" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/web/images/favicon.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/templates/compra_cancelada.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1028">
+          <caret line="69" column="112" selection-start-line="69" selection-start-column="112" selection-end-line="69" selection-end-column="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/django/contrib/auth/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="22" column="23" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/django/utils/datastructures.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7411" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/django/conf/urls/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/django/db/models/query.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="405" selection-start-line="405" selection-end-line="405" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python39/Lib/site-packages/django/core/checks/registry.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="20" column="4" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/django/contrib/admin/sites.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="743">
+          <caret line="536" selection-start-line="536" selection-end-line="536" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/views_admin.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/urls_admin.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuracion/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="37" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="22" column="90" lean-forward="true" selection-start-line="22" selection-start-column="90" selection-end-line="22" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/funciones_stripe.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-908">
+          <caret line="48" column="18" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/usuarios/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-357">
-          <caret line="88" column="39" selection-start-line="88" selection-start-column="39" selection-end-line="88" selection-end-column="39" />
+        <state relative-caret-position="291">
+          <caret line="93" column="6" selection-start-line="93" selection-start-column="6" selection-end-line="93" selection-end-column="6" />
           <folding>
             <element signature="e#26#35#0" expanded="true" />
           </folding>
@@ -722,49 +735,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/usuarios/urls_api_v1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="22" column="53" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
-          <folding>
-            <element signature="e#92#124#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="608">
+          <caret line="40" column="55" selection-start-line="40" selection-start-column="55" selection-end-line="40" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/usuarios/views_api_v1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="1074" column="46" selection-start-line="1074" selection-start-column="46" selection-end-line="1074" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://b1c79849-9557-4144-b97b-3e565b58dc74/schema/main/table/auth_user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/stripe/api_resources/customer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="31" column="24" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/funciones_stripe.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="32" column="40" lean-forward="true" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configuracion/local_settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+        <state relative-caret-position="359">
+          <caret line="1328" column="62" selection-start-line="1328" selection-start-column="62" selection-end-line="1328" selection-end-column="62" />
         </state>
       </provider>
     </entry>
