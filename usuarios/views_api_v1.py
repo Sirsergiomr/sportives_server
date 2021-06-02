@@ -139,12 +139,12 @@ def login(request):
             os_user = request.POST['os_user']
 
         if (us is None and password is None) or (us == "" and password == ""):
-            response_data = {'result': 'error', 'message': 'Falta el usuario y el password'}
+            response_data = {'result': '001', 'message': 'Falta el usuario y el password'}
             return JsonResponse(response_data)
-            #return http.HttpResponse(json.dumps(response_data), content_type="application/json")
+
 
         if us is None or us == "":
-            response_data = {'result': 'error', 'message': 'Falta el usuario'}
+            response_data = {'result': '002', 'message': 'Falta el usuario'}
             return http.HttpResponse(json.dumps(response_data), content_type="application/json")
 
         if password is None or password == "":
@@ -274,7 +274,6 @@ def registro_login_google(request):
                         response_data = {'result': 'ok', 'message': 'Usuario logueado', 'token': user_token.token,
                                          'usuario': user.username,
                                          'nombre': user.first_name,
-                                         # 'criador': es_criador,
                                          'tipo_sesion': datosExtra.tipo
                                          }
                         return http.HttpResponse(json.dumps(response_data), content_type="application/json")
@@ -627,31 +626,34 @@ def cambiar_publicidad(request):
 
 @csrf_exempt
 def cambiar_nombre(request):
-    # print ("cambiar_nombre")
+    print (request)
     try:
         try:
             datos = json.loads(request.POST['data'])
-            nombre = datos.get('nombre')
             token = datos.get('token')
             usuario_id = datos.get('usuario_id')
+            nombre = datos.get('nombre')
         except Exception as e:
             token = request.POST['token']
             usuario_id = request.POST['usuario_id']
             nombre = request.POST['nombre']
 
         if comprobar_usuario(token, usuario_id):
+            print(nombre)
             userdjango = get_userdjango_by_token(token)
             userdjango.first_name = nombre
             userdjango.save()
-            response_data = {'result': 'ok', 'message': 'Nombre cambiado'}
+            print(userdjango.first_name)
+            response_data = {'result': 'ok', 'message': 'Nombre cambiado', 'nombre':userdjango.first_name}
         else:
             response_data = {'result': 'error', 'message': 'Usuario no logueado'}
 
         return http.HttpResponse(json.dumps(response_data), content_type="application/json")
-
+        print(response_data)
     except Exception as e:
         response_data = {'errorcode': 'U0005', 'result': 'error',
                          'message': 'Error en perfil de usuario: ' + str(e)}
+        print(response_data)
         return http.HttpResponse(json.dumps(response_data), content_type="application/json")
 
 
@@ -929,9 +931,6 @@ def registrar_entrenamiento(request):
     return JsonResponse(response_data)
 
 
-
-
-
 @csrf_exempt
 def get_maquina(request):
     print(request)
@@ -951,9 +950,9 @@ def get_maquina(request):
             response_data = {'result': 'ok', 'message': 'ok', 'nombre': maquina.Nombre_maquina,
                              "id_maquina": maquina.pk}
         except Exception as e:
-            response_data = {'result': 'error', 'message': 'Máquina no encontrada'}
+            response_data = {'result': '001', 'message': 'Máquina no encontrada'}
     else:
-        response_data = {'result': 'login_error', 'message': 'Fallo de sesión'}
+        response_data = {'result': '002', 'message': 'Usuario no logeado'}
 
     return JsonResponse(response_data)
 @csrf_exempt
@@ -983,9 +982,14 @@ def get_entrenamientos(request):
             entrenamientos = entrenamientos.filter(fecha=fecha)
             for entrenar in entrenamientos:
                 lista.append(entrenar.toJSON())
-            response_data = {'result': 'ok', 'lista': lista}
+
+            if lista == []:
+               response_data = {'result': 'ok2','message':'¡Añade un entrenamiento usando un Qr!', 'lista': lista}
+            else:
+              response_data = {'result': 'ok', 'lista': lista}
+
         else:
-            response_data = {'result': 'error', 'message': 'No se han encontrado entrenamientos con fehca' + fecha}
+            response_data = {'result': 'error', 'message': 'No se han encontrado entrenamientos con fecha' + fecha}
     else:
         response_data = {'result': 'login_error', 'message': 'Fallo de sesión'}
     return JsonResponse(response_data)
@@ -1043,18 +1047,16 @@ def get_anuncios(request):
             lista.append(oferta.toJSON())
         response_data = {'result': 'ok', 'lista': lista}
     else:
-        response_data = {'result': 'login_error', 'message': 'Fallo de sesión'}
+        response_data = {'result': '001', 'message': 'Usuario no existe'}
     return JsonResponse(response_data)
 
 
 def enviar(mensaje):
     mensaje.send()
 
-
 def enviar_email(asunto, mensaje, mensaje_html, destinos):
     msg = EmailMessage(asunto, mensaje_html, settings.EMAIL_HOST_USER, destinos)
     msg.content_subtype = "html"
-
     t = threading.Thread(target=enviar, args=(msg,))
     t.start()
 
@@ -1122,7 +1124,7 @@ def eraserCards(request):
         response_data = {'result': 'ok', 'message': 'tarjetas borradas'}
 
     else:
-        response_data = {'result': 'error', 'message': 'usuario incorrecto', 'codigo': "nice"}
+        response_data = {'result': '001', 'message': 'usuario incorrecto', 'codigo': "nice"}
     return JsonResponse(response_data)
 
 @csrf_exempt
@@ -1162,11 +1164,11 @@ def get_tarjetas(request):
                 response_data = {'result': 'no_cards', 'message': 'ok'}
         else:
             # print "error"
-            response_data = {'result': 'error', 'message': 'no_ok'}
+            response_data = {'result': '001', 'message': 'no_ok'}
         return http.HttpResponse(json.dumps(response_data), content_type="application/json")
     except Exception as e:
         print(e)
-        response_data = {'errorcode': 'U0005', 'result': 'error', 'message': 'Error en crear usuario. ' + str(e)}
+        response_data = {'result': '002', 'message': 'Error en crear usuario. ' + str(e)}
         return http.HttpResponse(json.dumps(response_data), content_type="application/json")
 
 @csrf_exempt
@@ -1190,11 +1192,11 @@ def get_contratados(request):
                     lista.append(anuncio.toJSON())
                 response_data = {'result': 'ok', 'message': 'ok', 'lista': lista}
             else:
-                response_data = {'result': 'error', 'message': 'Transaccion no encontrada'}
+                response_data = {'result': '001', 'message': 'Transaccion no encontrada'}
         except:
             response_data = {'result': 'ok', 'message': 'La transaccion no existe','lista': lista}
     else:
-        response_data = {'result': 'error', 'message': 'Usuario no logeado'}
+        response_data = {'result': '002', 'message': 'Usuario no logeado'}
 
     print(response_data)
     return JsonResponse(response_data)
@@ -1235,32 +1237,36 @@ def hacer_pago(request):
             creador = User.objects.get(pk=usuario_id)
             if creador.datosextrauser.id_customer_stripe is None or creador.datosextrauser.id_customer_stripe == '':
                 print("no id")
-                response_data = {'result': 'error',
-                                 'codigo': "0005",
+                response_data = {'result': '001',
                                  'message': "Ha ocurrido un problema con su tarjeta de credito, necesita introducir una Tarjeta Bancaria válida"}
 
             elif comprobar_transaccion(anuncio_id,usuario_id):
-                response_data = {'result': 'error', "codigo": "0004", 'message': "Ya se ha contratado ese servicio"}
+                response_data = {'result': '002', 'message': "Ya se ha contratado ese servicio"}
             else:
                 transaccion = Transaccion.objects.create(creador=creador,
                                                          receptor=receptor,
-                                                         cantidad=total,
-                                                         anuncio=Anuncio.objects.get(pk=anuncio_id))
+                                                         cantidad=total)
 
                 pagoOk, msg = funciones_stripe.securepay(total, transaccion)
 
-                print(total)
                 if pagoOk:
                     print(total)
-                    response_data = {'result': 'ok', 'message': msg}
                     print(msg)
+
+                    if Anuncio.objects.filter(pk=anuncio_id) is not None:
+                        transaccion = transaccion.Anuncio.objects.get(pk=anuncio_id)
+                        transaccion.save()
+                        response_data = {'result': 'ok', 'message': msg}
+                    else:
+                        response_data = {'result': '003', 'message': 'El anuncio no existe'}
                 else:
-                    response_data = {'result': 'error', "codigo": "0003", 'message': msg}
+                    response_data = {'result': '004', 'message': msg}
         else:
-            response_data = {'result': 'error', 'message': 'Usuario no encontrado'}
+            response_data = {'result': '005', 'message': 'Usuario no encontrado'}
     else:
-        response_data = {'result': 'error', 'message': 'Usuario no logeado'}
+        response_data = {'result': '006', 'message': 'Usuario no logeado'}
     return JsonResponse(response_data)
+
 @csrf_exempt
 def comprobar_conexion(request):
     try:
@@ -1274,8 +1280,9 @@ def comprobar_conexion(request):
     if comprobar_usuario(token, usuario_id):
         response_data = {'result': 'ok', 'message': 'Usuario encontrado'}
     else:
-        response_data = {'result': 'error', 'message': 'Usuario no encontrado'}
+        response_data = {'result': '001', 'message': 'Usuario no encontrado'}
     return JsonResponse(response_data)
+
 @csrf_exempt
 def eraser_entrenamientos(request):
     try:
@@ -1296,13 +1303,16 @@ def eraser_entrenamientos(request):
 
             print("Borrando entrenamioeno")
 
-            entrenamiento.filter(pk=entrenamiento_id).delete()
-
-            response_data = {'result': 'ok', 'message': 'Entrenamiento borrado'}
+            if entrenamiento.filter(pk=entrenamiento_id) is not None:
+                entrenamiento.filter(pk=entrenamiento_id).delete()
+                print("Entrenamiento borrado")
+                response_data = {'result': 'ok', 'message': 'Entrenamiento borrado'}
+            else:
+                response_data = {'result': '001', 'message': 'Entrenamiento inexistente'}
         else:
-            response_data = {'result': 'error', 'message': 'Entrenamiento no  encontrado'}
+            response_data = {'result': '002', 'message': 'Entrenamiento no  encontrado'}
     else:
-        response_data = {'result': 'error', 'message': 'Usuario no encontrado'}
+        response_data = {'result': '003', 'message': 'Usuario no encontrado'}
     return JsonResponse(response_data)
 
 @csrf_exempt
@@ -1325,18 +1335,48 @@ def eraser_activity(request):
 
         if actividad.filter(pk=actividad_id) is not None:
             entrenamientos = Entrenamiento.objects.all()
-
             if entrenamientos.filter(fecha=fecha_actividad) is not None:
                 print("Borrando entrenamioeno")
                 actividad.filter(pk=actividad_id).delete()
-                entrenamientos.filter(fecha=fecha_actividad).delete()
-            response_data = {'result': 'ok', 'message': 'Actividad borrada'}
+                if  entrenamientos.filter(fecha=fecha_actividad) is not None:
+                    entrenamientos.filter(fecha=fecha_actividad).delete()
+                    response_data = {'result': 'ok', 'message': 'Actividad borrada'}
+                else:
+                    response_data = {'result': '001', 'message': 'La actividad no existe'}
         else:
-            response_data = {'result': 'error', 'message': 'Entrenamiento no  encontrado'}
+            response_data = {'result': '002', 'message': 'Entrenamiento no  encontrado'}
     else:
-        response_data = {'result': 'error', 'message': 'Usuario no encontrado'}
+        response_data = {'result': '003', 'message': 'Usuario no encontrado'}
     return JsonResponse(response_data)
 
+@csrf_exempt
+def eraser_transaction(request):
+    try:
+        datos = json.loads(request.POST['data'])
+        usuario_id = datos.get('usuario_id')
+        token = datos.get('token')
+        anuncio_id = datos.get('pk')
+
+    except Exception as e:
+        usuario_id = request.POST['usuario_id']
+        token = request.POST['token']
+        anuncio_id = request.POST['pk']
+
+    if comprobar_usuario(token,usuario_id):
+        print("usuario válido")
+        servicio_contratado = Anuncio.objects.filter(pk=anuncio_id)
+        if servicio_contratado is not None:
+            mitransaccion = Transaccion.objects.filter(anuncio=servicio_contratado)
+            if mitransaccion is not None:
+                mitransaccion.delete()
+                response_data = {'result':'ok', 'message':'Transacción eliminada correctamente'}
+            else:
+                response_data = {'result': '001', 'message': 'No existe esa transaccion'}
+        else:
+            response_data ={'result':'002','message':'El servicio no existe'}
+    else:
+        response_data = {'result': '003', 'message': 'Usuario no encontrado'}
+    return JsonResponse(response_data)
 
 # def generate_link(user):
 #     random = get_random_string(length=30)
