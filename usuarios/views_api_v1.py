@@ -971,20 +971,14 @@ def get_entrenamientos(request):
     lista = []
 
     if comprobar_usuario(token, usuario_id):
-
-        userdjango = get_userdjango_by_token(token)
-        os_temp = userdjango.datosextrauser.onesignal_id
-        notificaciones.notificacioInicioSesion(os_temp)
-
         entrenamientos = Entrenamiento.objects.all()
 
         if entrenamientos.filter(fecha=fecha) is not None:
             entrenamientos = entrenamientos.filter(fecha=fecha)
             for entrenar in entrenamientos:
                 lista.append(entrenar.toJSON())
-
             if lista == []:
-               response_data = {'result': 'ok2','message':'¡Añade un entrenamiento usando un Qr!', 'lista': lista}
+               response_data = {'result': '001', 'message': '¡Añade un entrenamiento usando un Qr!', 'lista': lista}
             else:
               response_data = {'result': 'ok', 'lista': lista}
 
@@ -992,6 +986,8 @@ def get_entrenamientos(request):
             response_data = {'result': 'error', 'message': 'No se han encontrado entrenamientos con fecha' + fecha}
     else:
         response_data = {'result': 'login_error', 'message': 'Fallo de sesión'}
+
+    print(response_data)
     return JsonResponse(response_data)
 
 
@@ -1164,7 +1160,7 @@ def get_tarjetas(request):
                 response_data = {'result': 'no_cards', 'message': 'ok'}
         else:
             # print "error"
-            response_data = {'result': '001', 'message': 'no_ok'}
+            response_data = {'result': '001', 'message': 'Usuario no logeado'}
         return http.HttpResponse(json.dumps(response_data), content_type="application/json")
     except Exception as e:
         print(e)
@@ -1183,6 +1179,7 @@ def get_contratados(request):
         token = request.POST['token']
 
     lista = []
+    transac = []
     if comprobar_usuario(token, usuario_id):
         try:
             mispagos = Transaccion.objects.all()
@@ -1190,7 +1187,8 @@ def get_contratados(request):
                 for obj in mispagos.filter(creador=usuario_id):
                     anuncio = Anuncio.objects.get(pk=obj.anuncio.pk)
                     lista.append(anuncio.toJSON())
-                response_data = {'result': 'ok', 'message': 'ok', 'lista': lista}
+                    transac.append(obj.toJSON())
+                response_data = {'result': 'ok', 'message': 'ok', 'lista': lista,'transac':transac}
             else:
                 response_data = {'result': '001', 'message': 'Transaccion no encontrada'}
         except:
@@ -1216,6 +1214,7 @@ def comprobar_transaccion(anuncio_id, usurio_id):
     except:
         return False
 
+
 @csrf_exempt
 def hacer_pago(request):
     print(request.POST)
@@ -1240,31 +1239,35 @@ def hacer_pago(request):
                 response_data = {'result': '001',
                                  'message': "Ha ocurrido un problema con su tarjeta de credito, necesita introducir una Tarjeta Bancaria válida"}
 
-            elif comprobar_transaccion(anuncio_id,usuario_id):
-                response_data = {'result': '002', 'message': "Ya se ha contratado ese servicio"}
+            elif comprobar_transaccion(anuncio_id, usuario_id):
+                response_data = {'result': 'error', 'message': "Ya se ha contratado este servicio"}
             else:
-                transaccion = Transaccion.objects.create(creador=creador,
-                                                         receptor=receptor,
-                                                         cantidad=total)
-
-                pagoOk, msg = funciones_stripe.securepay(total, transaccion)
-
-                if pagoOk:
-                    print(total)
-                    print(msg)
+                try:
 
                     if Anuncio.objects.filter(pk=anuncio_id) is not None:
-                        transaccion = transaccion.Anuncio.objects.get(pk=anuncio_id)
-                        transaccion.save()
-                        response_data = {'result': 'ok', 'message': msg}
+
+                        transaccion = Transaccion.objects.create(creador=creador,
+                                                                 receptor=receptor,
+                                                                 cantidad=total,
+                                                                 anuncio_id=anuncio_id)
+
+                        pagoOk, msg = funciones_stripe.securepay(total, transaccion)
+                        if pagoOk:
+                            print(total)
+                            print(msg)
+                            response_data = {'result': 'ok', 'message': msg}
+                        else:
+                            transaccion.delete()
+                            response_data = {'result': '001', 'message': msg}
                     else:
-                        response_data = {'result': '003', 'message': 'El anuncio no existe'}
-                else:
-                    response_data = {'result': '004', 'message': msg}
+                        response_data = {'result': 'error', 'message': "El anuncio no se ha encontrado"}
+                except Exception as e:
+                    response_data = {'result': 'error', 'message':str(e)}
         else:
-            response_data = {'result': '005', 'message': 'Usuario no encontrado'}
+            response_data = {'result': 'error', 'message': 'Usuario no encontrado'}
     else:
-        response_data = {'result': '006', 'message': 'Usuario no logeado'}
+        response_data = {'result': '007', 'message': 'Usuario no logeado'}
+    print(response_data)
     return JsonResponse(response_data)
 
 @csrf_exempt
@@ -1280,7 +1283,7 @@ def comprobar_conexion(request):
     if comprobar_usuario(token, usuario_id):
         response_data = {'result': 'ok', 'message': 'Usuario encontrado'}
     else:
-        response_data = {'result': '001', 'message': 'Usuario no encontrado'}
+        response_data = {'result': 'error', 'message': 'Usuario no encontrado'}
     return JsonResponse(response_data)
 
 @csrf_exempt
@@ -1308,11 +1311,11 @@ def eraser_entrenamientos(request):
                 print("Entrenamiento borrado")
                 response_data = {'result': 'ok', 'message': 'Entrenamiento borrado'}
             else:
-                response_data = {'result': '001', 'message': 'Entrenamiento inexistente'}
+                response_data = {'result': 'error', 'message': 'Entrenamiento inexistente'}
         else:
-            response_data = {'result': '002', 'message': 'Entrenamiento no  encontrado'}
+            response_data = {'result': 'error', 'message': 'Entrenamiento no  encontrado'}
     else:
-        response_data = {'result': '003', 'message': 'Usuario no encontrado'}
+        response_data = {'result': 'error', 'message': 'Usuario no encontrado'}
     return JsonResponse(response_data)
 
 @csrf_exempt
@@ -1342,12 +1345,13 @@ def eraser_activity(request):
                     entrenamientos.filter(fecha=fecha_actividad).delete()
                     response_data = {'result': 'ok', 'message': 'Actividad borrada'}
                 else:
-                    response_data = {'result': '001', 'message': 'La actividad no existe'}
+                    response_data = {'result': 'error', 'message': 'La actividad no existe'}
         else:
-            response_data = {'result': '002', 'message': 'Entrenamiento no  encontrado'}
+            response_data = {'result': 'error', 'message': 'Entrenamiento no  encontrado'}
     else:
-        response_data = {'result': '003', 'message': 'Usuario no encontrado'}
+        response_data = {'result': 'error', 'message': 'Usuario no encontrado'}
     return JsonResponse(response_data)
+
 
 @csrf_exempt
 def eraser_transaction(request):
@@ -1355,27 +1359,24 @@ def eraser_transaction(request):
         datos = json.loads(request.POST['data'])
         usuario_id = datos.get('usuario_id')
         token = datos.get('token')
-        anuncio_id = datos.get('pk')
-
+        transacion_pk = datos.get('transacion_pk')
     except Exception as e:
         usuario_id = request.POST['usuario_id']
         token = request.POST['token']
-        anuncio_id = request.POST['pk']
+        transacion_pk = request.POST['transacion_pk']
 
-    if comprobar_usuario(token,usuario_id):
+    if comprobar_usuario(token, usuario_id):
         print("usuario válido")
-        servicio_contratado = Anuncio.objects.filter(pk=anuncio_id)
-        if servicio_contratado is not None:
-            mitransaccion = Transaccion.objects.filter(anuncio=servicio_contratado)
-            if mitransaccion is not None:
-                mitransaccion.delete()
-                response_data = {'result':'ok', 'message':'Transacción eliminada correctamente'}
-            else:
-                response_data = {'result': '001', 'message': 'No existe esa transaccion'}
+        print("Obtenido tipo de servicio a borrar")
+        mitransaccion = Transaccion.objects.filter(pk=transacion_pk)
+        if mitransaccion is not None:
+            print("Filtrada transaccion")
+            mitransaccion.delete()
+            response_data = {'result': 'ok', 'message': 'Transacción eliminada correctamente'}
         else:
-            response_data ={'result':'002','message':'El servicio no existe'}
+            response_data = {'result': 'error', 'message': 'No existe esa transaccion'}
     else:
-        response_data = {'result': '003', 'message': 'Usuario no encontrado'}
+        response_data = {'result': 'error', 'message': 'Usuario no encontrado'}
     return JsonResponse(response_data)
 
 # def generate_link(user):

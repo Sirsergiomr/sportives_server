@@ -39,6 +39,7 @@ urlpatterns = [
     url(r'^comprobar_conexion/$', views_api_v1.comprobar_conexion),
     url(r'^eraser_entrenamientos/$', views_api_v1.eraser_entrenamientos),
     url(r'^eraser_activity/$', views_api_v1.eraser_activity),
+    url(r'^eraser_transaction/$', views_api_v1.eraser_transaction),
 ]
 
 

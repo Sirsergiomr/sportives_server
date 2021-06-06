@@ -8,7 +8,8 @@ from django.contrib.auth import views as auth_views
 import usuarios
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    # url(r'^admin/', admin.site.urls),
+    url(r'^', admin.site.urls),
 
     url(r'^usuarios/', include('usuarios.urls')),
 

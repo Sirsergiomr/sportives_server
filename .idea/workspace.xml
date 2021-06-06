@@ -3,20 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9b55bfe2-1171-49f2-8fd3-0b2e4c39eb4f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configuracion/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/configuracion/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dbsqlite" beforeDir="false" afterPath="$PROJECT_DIR$/dbsqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/imagen/anuncios/Captura_de_pantalla_de_2020-02-02_19-40-10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/imagen/anuncios/Captura_de_pantalla_de_2020-02-17_08-25-00.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/imagen/categoria_anuncio/Captura_de_pantalla_de_2020-02-06_17-39-39.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/imagen/categoria_anuncio/Captura_de_pantalla_de_2020-02-14_18-01-34.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/imagen/categoria_anuncio/Captura_de_pantalla_de_2020-02-14_20-08-57.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/imagen/perros/Captura_de_pantalla_de_2020-02-17_20-04-09.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/imagen/perros/Captura_de_pantalla_de_2020-02-20_17-14-10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/imagenes/garantia/Captura_de_pantalla_de_2020-02-20_17-14-10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/imagenes/perfiles/Captura_de_pantalla_de_2020-02-14_18-47-36.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/imagenes/perfiles/usuario.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/imagenes/rango/Captura_de_pantalla_de_2020-02-14_18-47-36.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/imagenes/razas/Captura_de_pantalla_de_2020-01-31_20-19-07.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/media/imagenes/razas/rio-noruego_1920x1080_xtrafondos.com.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/admin/css/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/admin/css/base.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/usuarios/urls_api_v1.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/urls_api_v1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usuarios/views_api_v1.py" beforeDir="false" afterPath="$PROJECT_DIR$/usuarios/views_api_v1.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -70,23 +60,75 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/usuarios/views_api_v1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="665">
-              <caret line="275" column="67" selection-start-line="275" selection-start-column="67" selection-end-line="275" selection-end-column="67" />
+            <state relative-caret-position="-2527">
+              <caret line="1245" lean-forward="true" selection-start-line="1245" selection-end-line="1245" />
               <folding>
                 <element signature="e#1453#1605#0" />
                 <element signature="e#1737#1814#0" />
                 <element signature="e#1947#2024#0" />
                 <element signature="e#2120#2376#0" />
                 <element signature="e#2476#2767#0" />
-                <element signature="e#12628#12858#0" />
-                <element signature="e#12968#14103#0" />
-                <element signature="e#14198#15031#0" />
-                <element signature="e#15181#16213#0" />
-                <element signature="e#16309#18500#0" />
-                <element signature="e#18547#20001#0" />
-                <element signature="e#20049#21345#0" />
-                <element signature="e#21398#22548#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/usuarios/funciones_stripe.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="104">
+              <caret line="51" selection-start-line="51" selection-end-line="51" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/django/db/models/query.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="173">
+              <caret line="886" column="8" selection-start-line="886" selection-start-column="8" selection-end-line="886" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/usuarios/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="213">
+              <caret line="148" column="6" selection-start-line="148" selection-start-column="6" selection-end-line="148" selection-end-column="6" />
+              <folding>
+                <element signature="e#26#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/usuarios/urls_api_v1.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="924">
+              <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/admin/css/base.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="91" selection-start-line="91" selection-end-line="92" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/configuracion/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -94,7 +136,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/django/contrib/auth/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6534">
+            <state relative-caret-position="6754">
               <caret line="307" column="14" selection-start-line="307" selection-start-column="4" selection-end-line="307" selection-end-column="14" />
             </state>
           </provider>
@@ -118,6 +160,9 @@
       <find>login</find>
       <find>load</find>
       <find>get_inicio</find>
+      <find>get_ent</find>
+      <find>get_con</find>
+      <find>get_cont</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -138,7 +183,6 @@
         <option value="$PROJECT_DIR$/configuracion/settings.py" />
         <option value="$PROJECT_DIR$/usuarios/templates/admin/info_maquinas.html" />
         <option value="$PROJECT_DIR$/usuarios/urls_admin.py" />
-        <option value="$PROJECT_DIR$/configuracion/urls.py" />
         <option value="$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/django/contrib/admin/sites.py" />
         <option value="$PROJECT_DIR$/usuarios/urls.py" />
         <option value="$PROJECT_DIR$/usuarios/views.py" />
@@ -148,7 +192,6 @@
         <option value="$PROJECT_DIR$/static/web/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/usuarios/templates/info_maquinas.html" />
         <option value="$PROJECT_DIR$/static/admin/css/widgets.css" />
-        <option value="$PROJECT_DIR$/static/admin/css/base.css" />
         <option value="$PROJECT_DIR$/notificaciones/notificaciones.py" />
         <option value="$PROJECT_DIR$/configuracion/local_settings.py" />
         <option value="$PROJECT_DIR$/usuarios/templates/checkout.html" />
@@ -156,8 +199,10 @@
         <option value="$PROJECT_DIR$/usuarios/templates/compra_cancelada.html" />
         <option value="$PROJECT_DIR$/usuarios/admin.py" />
         <option value="$PROJECT_DIR$/usuarios/funciones_stripe.py" />
-        <option value="$PROJECT_DIR$/usuarios/urls_api_v1.py" />
         <option value="$PROJECT_DIR$/usuarios/models.py" />
+        <option value="$PROJECT_DIR$/configuracion/urls.py" />
+        <option value="$PROJECT_DIR$/static/admin/css/base.css" />
+        <option value="$PROJECT_DIR$/usuarios/urls_api_v1.py" />
         <option value="$PROJECT_DIR$/usuarios/views_api_v1.py" />
       </list>
     </option>
@@ -198,10 +243,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="952" />
-    <option name="y" value="-8" />
-    <option name="width" value="976" />
-    <option name="height" value="1056" />
+    <option name="x" value="-7" />
+    <option name="width" value="1549" />
+    <option name="height" value="837" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -229,6 +273,12 @@
             <path>
               <item name="sportives_server" type="b2602c69:ProjectViewProjectNode" />
               <item name="sportives_server" type="462c0819:PsiDirectoryNode" />
+              <item name="usuarios" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sportives_server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sportives_server" type="462c0819:PsiDirectoryNode" />
               <item name="utilidades" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -241,6 +291,7 @@
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SearchEverywhereHistoryKey" value=" =&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../__000Dreamsapps/propinasserver" />
@@ -249,16 +300,16 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\sirse\PycharmProjects\sportives_server\usuarios\templates" />
-      <recent name="C:\Users\sirse\PycharmProjects\sportives_server\usuarios" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\sirse\PycharmProjects\sportives_server\static\web\images" />
       <recent name="C:\Users\sirse\PycharmProjects\sportives_server\usuarios\templates" />
       <recent name="C:\Users\sirse\PycharmProjects\sportives_server" />
       <recent name="C:\Users\sirse\PycharmProjects\sportives_server\configuracion" />
       <recent name="C:\Users\sirse\PycharmProjects\sportives_server\administrador" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sirse\PycharmProjects\sportives_server\usuarios\templates" />
+      <recent name="C:\Users\sirse\PycharmProjects\sportives_server\usuarios" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -376,7 +427,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622417473024</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Actualizando servidor 02/06/2021">
+      <created>1622629913294</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1622629913294</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -390,21 +448,22 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Structure" order="0" sideWeight="0.5017503" side_tool="true" weight="0.5656455" />
+      <window_info id="Structure" order="0" sideWeight="0.50323623" side_tool="true" visible="true" weight="0.14498934" />
       <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.4982497" visible="true" weight="0.1433902" />
+      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.49676377" visible="true" weight="0.14498934" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Run" order="5" sideWeight="0.4989339" weight="0.329718" />
+      <window_info active="true" anchor="bottom" id="Run" order="5" sideWeight="0.4989339" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.329718" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5010661" side_tool="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5010661" side_tool="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Database Changes" order="10" weight="0.0" />
       <window_info anchor="bottom" id="Python Console" order="11" weight="0.3286334" />
       <window_info anchor="bottom" id="Terminal" order="12" weight="0.2635575" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.329718" />
@@ -457,50 +516,10 @@
     <MESSAGE value="Registrar entrenamientos ya funciona" />
     <MESSAGE value="Implementando stripe primera parte y actualización de datos" />
     <MESSAGE value="Añadido eraser para actividad junto a entrenamientos, comprobar conexion, get de servicios y actualización de datos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Añadido eraser para actividad junto a entrenamientos, comprobar conexion, get de servicios y actualización de datos" />
+    <MESSAGE value="Actualizando servidor 02/06/2021" />
+    <option name="LAST_COMMIT_MESSAGE" value="Actualizando servidor 02/06/2021" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/configuracion/local_settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/web/images/logo_sportives_titans.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/django/db/models/deletion.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/templates/gracias_compra.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="817">
-          <caret line="63" column="7" selection-start-line="63" selection-start-column="7" selection-end-line="63" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/web/images/favicon.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/templates/compra_cancelada.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1028">
-          <caret line="69" column="112" selection-start-line="69" selection-start-column="112" selection-end-line="69" selection-end-column="112" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/django/utils/datastructures.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="79">
-          <caret line="79" selection-start-line="79" selection-end-line="79" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/usuarios/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-7411" />
@@ -510,13 +529,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
           <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/django/db/models/query.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="405" selection-start-line="405" selection-end-line="405" />
         </state>
       </provider>
     </entry>
@@ -540,13 +552,6 @@
     <entry file="file://$PROJECT_DIR$/usuarios/urls_admin.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/configuracion/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="37" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/usuarios/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
@@ -568,79 +573,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/funciones_stripe.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1012">
-          <caret line="48" column="18" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/urls_api_v1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="18" column="52" selection-start-line="18" selection-start-column="52" selection-end-line="18" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usuarios/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="30" column="49" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="49" />
-          <folding>
-            <element signature="e#26#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/django/contrib/auth/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6534">
-          <caret line="307" column="14" selection-start-line="307" selection-start-column="4" selection-end-line="307" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/media/imagen/anuncios/Captura_de_pantalla_de_2020-02-02_19-40-10.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/media/imagen/anuncios/Captura_de_pantalla_de_2020-02-17_08-25-00.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/media/imagen/categoria_anuncio/Captura_de_pantalla_de_2020-02-14_20-08-57.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/media/imagen/categoria_anuncio/Captura_de_pantalla_de_2020-02-14_18-01-34.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/media/imagen/categoria_anuncio/Captura_de_pantalla_de_2020-02-06_17-39-39.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/media/imagen/perros/Captura_de_pantalla_de_2020-02-17_20-04-09.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/media/imagen/perros/Captura_de_pantalla_de_2020-02-20_17-14-10.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/media/imagenes/garantia/Captura_de_pantalla_de_2020-02-20_17-14-10.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/media/imagenes/perfiles/Captura_de_pantalla_de_2020-02-14_18-47-36.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/media/imagenes/perfiles/usuario.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/media/imagenes/rango/Captura_de_pantalla_de_2020-02-14_18-47-36.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/media/imagenes/razas/Captura_de_pantalla_de_2020-01-31_20-19-07.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/media/imagenes/razas/rio-noruego_1920x1080_xtrafondos.com.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/static/media/imagen/anuncios/Captura_de_pantalla_de_2020-02-02_19-40-10.png" />
+    <entry file="file://$PROJECT_DIR$/static/media/imagen/anuncios/Captura_de_pantalla_de_2020-02-17_08-25-00.png" />
+    <entry file="file://$PROJECT_DIR$/static/media/imagen/categoria_anuncio/Captura_de_pantalla_de_2020-02-14_20-08-57.png" />
+    <entry file="file://$PROJECT_DIR$/static/media/imagen/categoria_anuncio/Captura_de_pantalla_de_2020-02-14_18-01-34.png" />
+    <entry file="file://$PROJECT_DIR$/static/media/imagen/categoria_anuncio/Captura_de_pantalla_de_2020-02-06_17-39-39.png" />
+    <entry file="file://$PROJECT_DIR$/static/media/imagen/perros/Captura_de_pantalla_de_2020-02-17_20-04-09.png" />
+    <entry file="file://$PROJECT_DIR$/static/media/imagen/perros/Captura_de_pantalla_de_2020-02-20_17-14-10.png" />
+    <entry file="file://$PROJECT_DIR$/static/media/imagenes/garantia/Captura_de_pantalla_de_2020-02-20_17-14-10.png" />
+    <entry file="file://$PROJECT_DIR$/static/media/imagenes/perfiles/Captura_de_pantalla_de_2020-02-14_18-47-36.png" />
+    <entry file="file://$PROJECT_DIR$/static/media/imagenes/perfiles/usuario.png" />
+    <entry file="file://$PROJECT_DIR$/static/media/imagenes/rango/Captura_de_pantalla_de_2020-02-14_18-47-36.png" />
+    <entry file="file://$PROJECT_DIR$/static/media/imagenes/razas/Captura_de_pantalla_de_2020-01-31_20-19-07.png" />
+    <entry file="file://$PROJECT_DIR$/static/media/imagenes/razas/rio-noruego_1920x1080_xtrafondos.com.jpg" />
     <entry file="file://$PROJECT_DIR$/static/assets/img/twitter_25.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -686,24 +631,97 @@
     <entry file="file://$PROJECT_DIR$/static/admin/img/index.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/admin/img/README.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/admin/css/fonts.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/admin/css/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/admin/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/django/contrib/admin/templates/admin/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1370">
+          <caret line="4" column="21" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/templates/info_maquinas.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" lean-forward="true" selection-start-column="19" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuracion/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/django/contrib/auth/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6754">
+          <caret line="307" column="14" selection-start-line="307" selection-start-column="4" selection-end-line="307" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/admin/css/base.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="91" selection-start-line="91" selection-end-line="92" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/urls_api_v1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="924">
+          <caret line="43" lean-forward="true" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Entornos/sportives_server_entorno/Lib/site-packages/django/db/models/query.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="886" column="8" selection-start-line="886" selection-start-column="8" selection-end-line="886" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="148" column="6" selection-start-line="148" selection-start-column="6" selection-end-line="148" selection-end-column="6" />
+          <folding>
+            <element signature="e#26#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usuarios/funciones_stripe.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/usuarios/views_api_v1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="275" column="67" selection-start-line="275" selection-start-column="67" selection-end-line="275" selection-end-column="67" />
+        <state relative-caret-position="-2527">
+          <caret line="1245" lean-forward="true" selection-start-line="1245" selection-end-line="1245" />
           <folding>
             <element signature="e#1453#1605#0" />
             <element signature="e#1737#1814#0" />
             <element signature="e#1947#2024#0" />
             <element signature="e#2120#2376#0" />
             <element signature="e#2476#2767#0" />
-            <element signature="e#12628#12858#0" />
-            <element signature="e#12968#14103#0" />
-            <element signature="e#14198#15031#0" />
-            <element signature="e#15181#16213#0" />
-            <element signature="e#16309#18500#0" />
-            <element signature="e#18547#20001#0" />
-            <element signature="e#20049#21345#0" />
-            <element signature="e#21398#22548#0" />
           </folding>
         </state>
       </provider>

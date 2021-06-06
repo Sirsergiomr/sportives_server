@@ -10,18 +10,18 @@ body {
     font-size: 14px;
     font-family: "Roboto","Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
     color: #fff;
-    background: #003040;
+    background: #333333;
 }
 
 /* LINKS */
 
 a:link, a:visited {
-    color: #447e9b;
+    color: #eed106;
     text-decoration: none;
 }
 
 a:focus, a:hover {
-    color: #036;
+    color: #fff;
 }
 
 a:focus {
@@ -89,7 +89,7 @@ h4 {
 h5 {
     font-size: 10px;
     margin: 1.5em 0 .5em 0;
-    color: #666;
+    color: rgba(246, 255, 241, 0.31);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -245,7 +245,7 @@ table {
 td, th {
     font-size: 13px;
     line-height: 16px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #eed106;
     vertical-align: top;
     padding: 8px;
     font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
@@ -258,7 +258,7 @@ th {
 
 thead th,
 tfoot td {
-    color: #666;
+    color: #f6fff1;
     padding: 5px 10px;
     font-size: 11px;
     background: #fff;
@@ -269,19 +269,19 @@ tfoot td {
 
 tfoot td {
     border-bottom: none;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #eed106;
 }
 
 tr.alt {
-    background: #003040;
+    background: #eed106;
 }
 
 .row1 {
-    background: #fff;
+    background: #333333;
 }
 
 .row2 {
-    background: #f9f9f9;
+    background: #606060;
 }
 
 /* SORTABLE TABLES */
@@ -290,15 +290,15 @@ thead th {
     padding: 5px 10px;
     line-height: normal;
     text-transform: uppercase;
-    background: #003040;
+    background: #333333;
 }
 
 thead th a:link, thead th a:visited {
-    color: #666;
+    color: #f6fff1;
 }
 
 thead th.sorted {
-    background: #003040;
+    background: #333333;
 }
 
 thead th.sorted .text {
@@ -317,7 +317,7 @@ table thead th .text a {
 }
 
 table thead th .text a:focus, table thead th .text a:hover {
-    background: #003040;
+    background: #606060;
 }
 
 thead th.sorted a.sortremove {
@@ -369,7 +369,7 @@ table thead th.sorted .sortoptions a.sortremove:after {
 
 table thead th.sorted .sortoptions a.sortremove:focus:after,
 table thead th.sorted .sortoptions a.sortremove:hover:after {
-    color: #447e9b;
+    color: #f6fff1;
 }
 
 table thead th.sorted .sortoptions a.sortremove:focus,
@@ -483,7 +483,7 @@ input[type=button][disabled].default {
 .module {
     border: none;
     margin-bottom: 30px;
-    background: #003040;
+    background: #606060;
 }
 
 .module p, .module ul, .module h3, .module h4, .module dl, .module pre {
@@ -509,7 +509,7 @@ input[type=button][disabled].default {
     font-weight: 400;
     font-size: 13px;
     text-align: left;
-    background: #79aec8;
+    background: #606060;
     color: #fff;
 }
 
@@ -633,7 +633,7 @@ div.system-message p.system-message-title {
 /* BREADCRUMBS */
 
 div.breadcrumbs {
-    background: #79aec8;
+    background: #606060;
     padding: 10px 40px;
     border: none;
     font-size: 14px;
@@ -714,11 +714,11 @@ a.deletelink:focus, a.deletelink:hover {
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    color: #fff;
+    color: #f7ff10;
 }
 
 .object-tools a:focus, .object-tools a:hover {
-    background-color: #417690;
+    background-color: #f9a500;
 }
 
 .object-tools a:focus{
@@ -813,14 +813,14 @@ table#change-history tbody th {
     width: auto;
     height: 40px;
     padding: 10px 40px;
-    background: #417690;
+    background: #eed106;
     line-height: 40px;
     color: #ffc;
     overflow: hidden;
 }
 
 #header a:link, #header a:visited {
-    color: #fff;
+    color: #333333;
 }
 
 #header a:focus , #header a:hover {
@@ -836,11 +836,11 @@ table#change-history tbody th {
     margin: 0 20px 0 0;
     font-weight: 300;
     font-size: 24px;
-    color: #f5dd5d;
+    color: #f6fff1;
 }
 
 #branding h1, #branding h1 a:link, #branding h1 a:visited {
-    color: #f5dd5d;
+    color: #333333;
 }
 
 #branding h2 {
@@ -872,14 +872,14 @@ table#change-history tbody th {
 
 #user-tools a:focus, #user-tools a:hover {
     text-decoration: none;
-    border-bottom-color: #79aec8;
-    color: #79aec8;
+    border-bottom-color: #333333;
+    color: #333333;
 }
 
 /* SIDEBAR */
 
 #content-related {
-    background: #f8f8f8;
+    background: #606060;
 }
 
 #content-related .module {
@@ -887,14 +887,14 @@ table#change-history tbody th {
 }
 
 #content-related h3 {
-    font-size: 14px;
-    color: #666;
+    font-size: 18px;
+    color: #f6fff1;
     padding: 0 16px;
     margin: 0 0 16px;
 }
 
 #content-related h4 {
-    font-size: 13px;
+    font-size: 14px;
 }
 
 #content-related p {
@@ -940,7 +940,7 @@ table#change-history tbody th {
     vertical-align: middle;
     height: 15px;
     line-height: 15px;
-    background: #ddd;
+    background: #606060;
     border-radius: 4px;
     padding: 10px 15px;
     color: #333;
@@ -950,7 +950,7 @@ table#change-history tbody th {
 .delete-confirmation form .cancel-link:active,
 .delete-confirmation form .cancel-link:focus,
 .delete-confirmation form .cancel-link:hover {
-    background: #ccc;
+    background: #333333;
 }
 
 /* POPUP */
