@@ -4,24 +4,16 @@ import imghdr
 import os
 import threading
 import qrcode
-
+from datetime import datetime, timedelta
 import stripe
-from django.contrib.gis.geometry import json_regex
-from django.db.models import Sum
 from django.http.response import JsonResponse
-from django.template.loader import get_template
 import requests
-from django.urls.base import reverse
-from django.utils.crypto import get_random_string
 from django.views.generic.edit import CreateView
 
-# import notificaciones
+import pandas as pd
 from configuracion import local_settings
 from configuracion import settings
-# from dreamsadmin import funciones_stripe
-from notificaciones import notificaciones
 from usuarios import funciones_stripe
-from utilidades.contrasena import contrasena_generator
 from django.core.mail import EmailMessage
 
 __author__ = 'brian'
@@ -262,7 +254,6 @@ def registro_login_google(request):
                     user.save()
 
                     user_token = get_object_or_None(Tokenregister, user=user)
-                    # es_criador = Criador.objects.filter(user=user).exists()
 
                     if user_token is None:
                         token1 = str(user.id) + "_" + Token.id_generator()
@@ -918,7 +909,7 @@ def registrar_entrenamiento(request):
     if comprobar_usuario(token, usuario_id):
         userdjango = get_userdjango_by_token(token)
         try:
-          actividad = Actividad.objects.get(fecha=fecha)
+          actividad = Actividad.objects.get(fecha=fecha, usuario=userdjango)
         except Exception as e:
             actividad = Actividad.objects.create(usuario=userdjango, fecha=fecha,nombre_actividad=nombre_maquina)
             actividad.save()
@@ -969,7 +960,6 @@ def get_entrenamientos(request):
         fecha = request.POST['fecha']
 
     lista = []
-
     if comprobar_usuario(token, usuario_id):
         entrenamientos = Entrenamiento.objects.all()
 
@@ -1188,7 +1178,7 @@ def get_contratados(request):
                     anuncio = Anuncio.objects.get(pk=obj.anuncio.pk)
                     lista.append(anuncio.toJSON())
                     transac.append(obj.toJSON())
-                response_data = {'result': 'ok', 'message': 'ok', 'lista': lista,'transac':transac}
+                response_data = {'result': 'ok', 'message': 'ok', 'lista': lista,'transac': transac}
             else:
                 response_data = {'result': '001', 'message': 'Transaccion no encontrada'}
         except:
@@ -1378,9 +1368,3 @@ def eraser_transaction(request):
     else:
         response_data = {'result': 'error', 'message': 'Usuario no encontrado'}
     return JsonResponse(response_data)
-
-# def generate_link(user):
-#     random = get_random_string(length=30)
-#     validacion_bd = Validacion.objects.create(usuario=user, validation_id=random)
-#     link_validacion = 'https://example.com/validacion/' + str(user.pk) + "_" + validacion_bd.validation_id
-#     return link_validacion
